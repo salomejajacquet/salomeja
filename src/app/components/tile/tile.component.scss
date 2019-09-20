@@ -1,0 +1,20 @@
+@import '~src/assets/scss/variables';
+
+.tile {
+  // background: red;
+
+  svg {
+    max-width: 100%;
+  }
+}
+
+.tile--group {
+  display: grid;
+  grid-gap: $group-spacing;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  a {
+    background: blue;
+  }
+}
