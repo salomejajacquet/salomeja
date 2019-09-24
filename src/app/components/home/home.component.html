@@ -1,6 +1,6 @@
 <main class="main">
   <ul class="tiles">
-    <app-tile></app-tile>
+    <app-tile letter="S"></app-tile>
     <app-tile></app-tile>
     <app-tile></app-tile>
     <app-tile></app-tile>
@@ -8,3 +8,7 @@
     <app-tile></app-tile>
   </ul>
 </main>
+
+<div [@routeAnimations]="o && o.activatedRouteData && o.activatedRouteData['animation']">
+  <router-outlet #o="outlet"></router-outlet>
+</div>

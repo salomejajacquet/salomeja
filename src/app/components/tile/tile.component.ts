@@ -8,7 +8,7 @@ import { TileType } from 'src/app/enums/tile-type.enum';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TileComponent implements OnInit {
-  @Input() type: TileType;
+  // @Input() type: TileType;
   @Input() letter: string;
 
   constructor() { }
