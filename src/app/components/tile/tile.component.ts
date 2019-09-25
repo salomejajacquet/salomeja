@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { TileType } from 'src/app/enums/tile-type.enum';
+import { Tile } from 'src/app/models/tile.model';
 
 @Component({
   selector: 'app-tile',
@@ -8,11 +8,11 @@ import { TileType } from 'src/app/enums/tile-type.enum';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TileComponent implements OnInit {
-  // @Input() type: TileType;
-  @Input() letter: string;
+  @Input() data: Tile;
 
   constructor() { }
 
   ngOnInit() {
+    // console.log(this.data);
   }
 }

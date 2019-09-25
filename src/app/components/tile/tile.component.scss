@@ -8,7 +8,7 @@
   }
 }
 
-.tile--group {
+.content--group {
   display: grid;
   grid-gap: $group-spacing;
   grid-template-columns: repeat(2, 1fr);

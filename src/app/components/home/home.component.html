@@ -1,11 +1,6 @@
 <main class="main">
   <ul class="tiles">
-    <app-tile letter="S"></app-tile>
-    <app-tile></app-tile>
-    <app-tile></app-tile>
-    <app-tile></app-tile>
-    <app-tile></app-tile>
-    <app-tile></app-tile>
+    <app-tile *ngFor="let tile of tiles" [data]="tile"></app-tile>
   </ul>
 </main>
 

@@ -1,11 +1,11 @@
 <li class="tile">
-  <a class="content" [routerLink]="['/infos']">
-    <img src="/assets/images/letters/m.svg" alt="">
+  <a *ngIf="data.letter" class="content" [routerLink]="['/infos']">
+    <img src="/assets/images/letters/m.svg" alt="Letter">
   </a>
-  <!-- <div class="content">
+  <div *ngIf="!data.letter" class="content content--group">
     <a href=""><img src="/assets/images/letters/m.svg" alt=""></a>
     <a href=""><img src="/assets/images/letters/m.svg" alt=""></a>
     <a href=""><img src="/assets/images/letters/m.svg" alt=""></a>
     <a href=""><img src="/assets/images/letters/m.svg" alt=""></a>
-  </div> -->
+  </div>
 </li>
