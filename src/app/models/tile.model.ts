@@ -3,15 +3,18 @@
 export class Tile {
   // type: TileType;
   letter?: string;
-  images?: TileImage[];
+  // images?: TileImage[];
+  images?: any[];
 
   constructor(data: any) {
     const self: Tile = Object.assign(this, data);
-    console.log(data);
+    // console.log(data);
 
     if (data.images) {
+      self.images = [];
       data.images.map((image: any) => {
-        self.images.push(new TileImage(image));
+        // self.images.push(new TileImage(image));
+        self.images.push(image.image.image);
       });
     }
 
@@ -19,11 +22,13 @@ export class Tile {
   }
 }
 
-export class TileImage {
+// export class TileImage {
 
-  constructor(imageData: any) {
-    const self: Tile = Object.assign(this, imageData);
+//   constructor(data: any) {
+//     const self: Tile = Object.assign(this, data);
 
-    return self;
-  }
-}
+//     // console.log(data);
+
+//     return self;
+//   }
+// }

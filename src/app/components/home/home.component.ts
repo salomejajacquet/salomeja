@@ -49,7 +49,8 @@ export class HomeComponent implements OnInit {
 
       // Add first image as a cover
       if (images.length) {
-        this.addTile({ images: [images.shift()] });
+        const cover = images.shift();
+        this.addTile({ images: [cover] });
         this.checkLetter();
       }
 

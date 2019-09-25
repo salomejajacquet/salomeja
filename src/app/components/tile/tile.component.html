@@ -2,10 +2,7 @@
   <a *ngIf="data.letter" class="content" [routerLink]="['/infos']">
     <img src="/assets/images/letters/m.svg" alt="Letter">
   </a>
-  <div *ngIf="!data.letter" class="content content--group">
-    <a href=""><img src="/assets/images/letters/m.svg" alt=""></a>
-    <a href=""><img src="/assets/images/letters/m.svg" alt=""></a>
-    <a href=""><img src="/assets/images/letters/m.svg" alt=""></a>
-    <a href=""><img src="/assets/images/letters/m.svg" alt=""></a>
+  <div *ngIf="data.images" class="content" [ngClass]="{'is-group': data.images.length > 1}">
+    <button *ngFor="let image of data.images"><img [src]="image.data.thumbnails[1].url" alt=""></button>
   </div>
 </li>
