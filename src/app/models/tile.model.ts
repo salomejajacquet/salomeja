@@ -5,10 +5,15 @@ export class Tile {
   letter?: string;
   // images?: TileImage[];
   images?: any[];
+  cover?: any;
 
   constructor(data: any) {
     const self: Tile = Object.assign(this, data);
     // console.log(data);
+
+    if (data.cover) {
+      self.cover = data.cover.image.image;
+    }
 
     if (data.images) {
       self.images = [];

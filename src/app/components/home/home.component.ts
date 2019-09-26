@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
       // Add first image as a cover
       if (images.length) {
         const cover = images.shift();
-        this.addTile({ images: [cover] });
+        this.addTile({ cover: cover });
         this.checkLetter();
       }
 

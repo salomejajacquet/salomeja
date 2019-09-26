@@ -13,6 +13,6 @@ export class TileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.data.images);
+    // console.log(this.data.images);
   }
 }
