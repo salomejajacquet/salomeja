@@ -6,3 +6,15 @@
   grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
   padding: $spacing;
 }
+
+.lightbox-wrapper {
+  transform: scale(1);
+  opacity: 1;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+}

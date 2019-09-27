@@ -1,0 +1,22 @@
+<div class="lightbox">
+  <div class="overlay" (click)="close()"></div>
+
+  <ul class="list" [ngClass]="{'is-animated': isAnimated}" [ngStyle]="{
+    'transform': 'translate3d(-' + translate + 'px, 0, 0)',
+    'margin-left': sideOffset + 'px'
+  }">
+    <li *ngFor="let image of images; let i = index" class="dialog" [ngClass]="{'is-visible': i == lightboxIndex}"
+      [ngStyle]="{'width': entryWidth + 'px'}">
+      <app-lightbox-entry *ngIf="lightboxIndex == i" [image]="image"></app-lightbox-entry>
+      <button *ngIf="i < lightboxIndex || i > lightboxIndex" (click)="onClickDialog(i)">
+        <app-lightbox-entry [image]="image"></app-lightbox-entry>
+      </button>
+    </li>
+  </ul>
+
+  <div class="caption" #caption>{{currentImage.title}}</div>
+
+  <button class="close-button" (click)="close()">
+    <img src="/assets/images/icon-close.svg" alt="">
+  </button>
+</div>

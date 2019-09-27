@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Tile } from 'src/app/models/tile.model';
+import { LightboxService } from 'src/app/services/lightbox.service';
 
 @Component({
   selector: 'app-tile',
@@ -10,9 +11,22 @@ import { Tile } from 'src/app/models/tile.model';
 export class TileComponent implements OnInit {
   @Input() data: Tile;
 
-  constructor() { }
+  constructor(
+    private lightboxService: LightboxService
+  ) { }
 
   ngOnInit() {
     // console.log(this.data.images);
+    if (this.data.cover) {
+      this.lightboxService.addImage(this.data.cover);
+    } else if (this.data.images) {
+      this.data.images.map(image => {
+        this.lightboxService.addImage(image);
+      });
+    }
+  }
+
+  openLightbox(image: any) {
+    this.lightboxService.open(image);
   }
 }

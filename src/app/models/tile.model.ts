@@ -1,10 +1,6 @@
-// import { TileType } from '../enums/tile-type.enum';
-
 export class Tile {
-  // type: TileType;
   letter?: string;
-  // images?: TileImage[];
-  images?: any[];
+  images?: TileImage[];
   cover?: any;
 
   constructor(data: any) {
@@ -12,14 +8,15 @@ export class Tile {
     // console.log(data);
 
     if (data.cover) {
-      self.cover = data.cover.image.image;
+      self.cover = new TileImage(data.cover.image);
+      // self.cover = data.cover.image.image;
     }
 
     if (data.images) {
       self.images = [];
       data.images.map((image: any) => {
-        // self.images.push(new TileImage(image));
-        self.images.push(image.image.image);
+        self.images.push(new TileImage(image.image));
+        // self.images.push(image.image.image);
       });
     }
 
@@ -27,13 +24,15 @@ export class Tile {
   }
 }
 
-// export class TileImage {
+export class TileImage {
+  bigUrl: string;
+  thumbUrl: string;
+  title: string;
 
-//   constructor(data: any) {
-//     const self: Tile = Object.assign(this, data);
-
-//     // console.log(data);
-
-//     return self;
-//   }
-// }
+  constructor(data: any) {
+    // console.log(data);
+    this.title = data.title;
+    this.thumbUrl = data.image.data.thumbnails.find(thumbnail => thumbnail.dimension == '300x300').url;
+    this.bigUrl = data.image.data.thumbnails.find(thumbnail => thumbnail.dimension == '1200x1200').url;
+  }
+}
