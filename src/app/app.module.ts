@@ -8,6 +8,8 @@ import { TileComponent } from './components/tile/tile.component';
 import { InfosComponent } from './components/infos/infos.component';
 import { LightboxComponent } from './components/lightbox/lightbox.component';
 import { LightboxEntryComponent } from './components/lightbox/lightbox-entry/lightbox-entry.component';
+import { InlineSVGModule } from 'ng-inline-svg';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LightboxEntryComponent } from './components/lightbox/lightbox-entry/lig
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    InlineSVGModule
   ],
   providers: [],
   bootstrap: [AppComponent]
