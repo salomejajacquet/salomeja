@@ -17,9 +17,7 @@ export class TileComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.data.images);
-    if (this.data.cover) {
-      this.lightboxService.addImage(this.data.cover);
-    } else if (this.data.images) {
+    if (this.data.images) {
       this.data.images.map(image => {
         this.lightboxService.addImage(image);
       });

@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
     { index: 7, letter: 'a' }
   ];
   tiles: Tile[] = [];
-  tileIndex: number = 0;
   lightboxIndex: number;
 
   constructor(
@@ -50,31 +49,24 @@ export class HomeComponent implements OnInit {
   }
 
   buildTiles(projects: any) {
-    // let lastProjectId: number = 0;
+    const images = [];
 
     projects.map((project: any) => {
-      // console.log(index);
-      // console.log(project);
-
-      this.checkLetter();
-
-      const images = project.images;
-
-      // Add first image as a cover
-      if (images.length) {
-        const cover = images.shift();
-        this.addTile({ cover: cover });
-        this.checkLetter();
-      }
-
-      // Add images by chunch of 4
-      this.chunk(images, 4).map(images => {
-        this.addTile({ images: images });
-        this.checkLetter();
+      project.images.map((image: any) => {
+        images.push(image);
       });
     });
 
-    // console.log(this.tiles);
+    this.chunk(images, 4).map(images => {
+      const tile = this.createTile({ images: images });
+      this.tiles.push(tile);
+    });
+
+    // Insert letters
+    this.lettersPosition.map(letter => {
+      this.tiles.splice(letter.index, 0, this.createTile({ letter: letter.letter }));
+    });
+
     this.ref.markForCheck();
   }
 
@@ -90,19 +82,8 @@ export class HomeComponent implements OnInit {
     return chunks;
   }
 
-  checkLetter() {
-    const letter = this.lettersPosition.find(letterPosition => letterPosition.index == this.tileIndex);
-    if (letter) {
-      this.addTile({
-        letter: letter.letter
-      });
-    }
-  }
-
-  addTile(data: any) {
-    const tile = new Tile(data);
-    this.tiles.push(tile);
-    this.tileIndex++;
+  createTile(data: any) {
+    return new Tile(data);
   }
 
   ngOnDestroy() {

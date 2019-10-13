@@ -9,7 +9,8 @@ $base-font-size: 1rem;
 
 // Sizes
 $spacing: 1rem;
-$group-spacing: $spacing / 3;
+// $group-spacing: $spacing / 3;
+$group-spacing: $spacing;
 
 // Easing
 $ease-out-quint: cubic-bezier(.23, 1, .32, 1);

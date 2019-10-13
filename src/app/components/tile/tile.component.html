@@ -2,10 +2,6 @@
   <a *ngIf="data.letter" class="content" [routerLink]="['/infos']">
     <img src="/assets/images/letters/m.svg" alt="Letter">
   </a>
-  <div *ngIf="data.cover" class="content">
-    <button (click)="openLightbox(data.cover)"><img draggable="false" [src]="data.cover.thumbUrl"
-        [alt]="data.cover.title"></button>
-  </div>
   <div *ngIf="data.images" class="content is-group">
     <button *ngFor="let image of data.images" (click)="openLightbox(image)"><img draggable="false"
         [src]="image.thumbUrl" [alt]="image.title"></button>

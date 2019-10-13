@@ -1,16 +1,10 @@
 export class Tile {
   letter?: string;
   images?: TileImage[];
-  cover?: any;
 
   constructor(data: any) {
     const self: Tile = Object.assign(this, data);
     // console.log(data);
-
-    if (data.cover) {
-      self.cover = new TileImage(data.cover.image);
-      // self.cover = data.cover.image.image;
-    }
 
     if (data.images) {
       self.images = [];
