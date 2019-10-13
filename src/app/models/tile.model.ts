@@ -26,7 +26,7 @@ export class TileImage {
   constructor(data: any) {
     // console.log(data);
     this.title = data.title;
-    this.thumbUrl = data.image.data.thumbnails.find(thumbnail => thumbnail.dimension == '300x300').url;
+    this.thumbUrl = data.image.data.thumbnails.find(thumbnail => thumbnail.dimension == '100x100').url;
     this.bigUrl = data.image.data.thumbnails.find(thumbnail => thumbnail.dimension == '1200x1200').url;
   }
 }
