@@ -1,11 +1,15 @@
 <main class="main">
-  <ul class="tiles">
+  <ul class="tiles" [ngClass]="{'is-visible': displayLetters}">
     <app-tile *ngFor="let tile of tiles" [data]="tile"></app-tile>
   </ul>
 </main>
 
-<div [@routeAnimations]="o && o.activatedRouteData && o.activatedRouteData['animation']">
+<!-- <div [@routeAnimations]="o && o.activatedRouteData && o.activatedRouteData['animation']">
   <router-outlet #o="outlet"></router-outlet>
+</div> -->
+
+<div class="infos-wrapper" *ngIf="openInfos" [@slideInAnimation]>
+  <app-infos></app-infos>
 </div>
 
 <div class="lightbox-wrapper" *ngIf="lightboxIndex != null" [@lightboxAnimation]>

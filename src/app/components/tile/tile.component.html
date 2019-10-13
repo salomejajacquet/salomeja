@@ -1,7 +1,7 @@
-<li class="tile">
-  <a *ngIf="data.letter" class="content" [routerLink]="['/infos']">
-    <img src="/assets/images/letters/m.svg" alt="Letter">
-  </a>
+<li class="tile" [ngClass]="{'is-letter': data.letter}">
+  <button *ngIf="data.letter" class="content" (click)="openInfos()">
+    <img [src]="'/assets/images/letters/' + data.letter + '.svg'" alt="Letter">
+  </button>
   <div *ngIf="data.images" class="content is-group">
     <button *ngFor="let image of data.images" (click)="openLightbox(image)"><img draggable="false"
         [src]="image.thumbUrl" [alt]="image.title"></button>

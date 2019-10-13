@@ -1,7 +1,106 @@
-<div class="infos">
-  <a class="close-button" aria-label="Close button" routerLink="/"><img src="/assets/images/close-button.svg"
-      alt="Close button"></a>
-  Lorem ipsum dolor sit, amet consectetur adipisicing elit. In libero sequi, voluptatem inventore dolorem, eligendi
-  officiis ratione dicta cupiditate dolores, modi ipsum delectus sit enim voluptatum laboriosam! Impedit, vero
-  doloribus?
+<div class="infos" [ngClass]="{'is-scrollable': displayLetters}">
+  <ul class="letters" [ngClass]="{'is-visible': displayLetters}">
+    <li><img src="/assets/images/letters/S.svg" alt="Letter"></li>
+    <li></li>
+    <li><img src="/assets/images/letters/L.svg" alt="Letter"></li>
+    <li></li>
+    <li><img src="/assets/images/letters/M.svg" alt="Letter"></li>
+    <li></li>
+    <li><img src="/assets/images/letters/J.svg" alt="Letter"></li>
+    <li><img src="/assets/images/letters/A.svg" alt="Letter"></li>
+  </ul>
+  <div class="inner">
+    <h2 class="title">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. In libero sequi, voluptatem inventore dolorem, eligendi
+      officiis ratione dicta cupiditate dolores, modi ipsum delectus sit enim voluptatum laboriosam! Impedit, vero
+      doloribus?
+    </h2>
+    <div class="body">
+      <div class="column">
+        <section>
+          <h3>Biography</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+        </section>
+        <section>
+          <h3>Biography</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+        </section>
+        <section>
+          <h3>Biography</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+        </section>
+      </div>
+      <div class="column">
+        <section>
+          <h3>Biography</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+        </section>
+        <section>
+          <h3>Biography</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+        </section>
+        <section>
+          <h3>Biography</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti praesentium assumenda nostrum, repellat
+            tempore voluptatibus, perferendis minus, dolorem itaque eaque unde. Nesciunt, quia at quasi quod dolorum
+            voluptates ipsam atque!
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <button class="close-button" aria-label="Close button" (click)="close()"><img src="/assets/images/icon-close.svg"
+      alt="Close button"></button>
 </div>

@@ -5,8 +5,8 @@
   padding-bottom: 150%;
   position: relative;
 
-  svg {
-    max-width: 100%;
+  &.is-letter {
+    z-index: 99;
   }
 }
 

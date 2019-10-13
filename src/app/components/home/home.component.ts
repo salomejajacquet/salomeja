@@ -5,6 +5,7 @@ import { Api } from 'src/app/services/api.service';
 import { Tile } from 'src/app/models/tile.model';
 import { LightboxService } from 'src/app/services/lightbox.service';
 import { takeWhile } from 'rxjs/operators';
+import { InfosService } from 'src/app/services/infos.service';
 
 @Component({
   selector: 'app-home',
@@ -16,19 +17,22 @@ import { takeWhile } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
   private _alive: boolean = true;
   lettersPosition = [
-    { index: 0, letter: 's' },
-    { index: 2, letter: 'l' },
-    { index: 4, letter: 'm' },
-    { index: 6, letter: 'j' },
-    { index: 7, letter: 'a' }
+    { index: 0, letter: 'S' },
+    { index: 2, letter: 'L' },
+    { index: 4, letter: 'M' },
+    { index: 6, letter: 'J' },
+    { index: 7, letter: 'A' }
   ];
   tiles: Tile[] = [];
   lightboxIndex: number;
+  openInfos: boolean = false;
+  displayLetters: boolean = true;
 
   constructor(
     private api: Api,
     private ref: ChangeDetectorRef,
-    private lightboxService: LightboxService
+    private lightboxService: LightboxService,
+    private infosService: InfosService
   ) { }
 
   async ngOnInit() {
@@ -39,14 +43,30 @@ export class HomeComponent implements OnInit {
       .pipe(takeWhile(() => this._alive))
       .subscribe((index: number) => {
         this.lightboxIndex = index;
-        // console.log(index);
         this.ref.markForCheck();
+      });
+
+    this.infosService.openInfosChannel()
+      .pipe(takeWhile(() => this._alive))
+      .subscribe((state: boolean) => {
+        this.openInfos = state;
+        this.ref.markForCheck();
+
+        if (state) {
+          setTimeout(() => {
+            this.displayLetters = false;
+            this.ref.markForCheck();
+          }, 810);
+        } else {
+          this.displayLetters = true;
+          this.ref.markForCheck();
+        }
       });
   }
 
-  prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-  }
+  // prepareRoute(outlet: RouterOutlet) {
+  //   return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  // }
 
   buildTiles(projects: any) {
     const images = [];

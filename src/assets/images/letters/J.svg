@@ -3,7 +3,8 @@
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 83 121" style="enable-background:new 0 0 83 121;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:5;}
+	.st0{fill:none;stroke:#000000;stroke-width:5;}
 </style>
-<polyline class="st0" points="2.6,118 2.6,1.6 41.4,111.6 80.4,1.6 80.4,118 "/>
+<path class="st0" d="M12.6,79.8v12.9c0,3,0.7,6,2,9c1.4,3,3.3,5.7,5.8,8.1s5.6,4.3,9.2,5.8c3.7,1.4,7.7,2.2,12.2,2.2
+	s8.4-0.7,11.9-2.2s6.4-3.4,8.7-5.8s4.1-5.1,5.4-8.1c1.3-3,1.9-5.9,1.9-8.8l0.3-91"/>
 </svg>

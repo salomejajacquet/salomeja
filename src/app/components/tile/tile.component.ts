@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Tile } from 'src/app/models/tile.model';
 import { LightboxService } from 'src/app/services/lightbox.service';
+import { InfosService } from 'src/app/services/infos.service';
 
 @Component({
   selector: 'app-tile',
@@ -12,7 +13,8 @@ export class TileComponent implements OnInit {
   @Input() data: Tile;
 
   constructor(
-    private lightboxService: LightboxService
+    private lightboxService: LightboxService,
+    private infosService: InfosService
   ) { }
 
   ngOnInit() {
@@ -22,6 +24,10 @@ export class TileComponent implements OnInit {
         this.lightboxService.addImage(image);
       });
     }
+  }
+
+  openInfos() {
+    this.infosService.open(true);
   }
 
   openLightbox(image: any) {
