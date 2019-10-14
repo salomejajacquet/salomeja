@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
           setTimeout(() => {
             this.displayLetters = false;
             this.ref.markForCheck();
-          }, 810);
+          }, 850);
         } else {
           this.displayLetters = true;
           this.ref.markForCheck();
