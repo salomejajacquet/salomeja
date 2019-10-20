@@ -5,6 +5,6 @@
 	.st0{fill:none;stroke:#000000;stroke-width:0.75;}
 </style>
 <g>
-	<path class="st0 letter letter-l" d="M72,116.8L10.3,116.8L10.3,0L10.3,116.8Z"></path>
+	<path class="st0 letter-path letter-path--l" d="M72,116.8L10.3,116.8L10.3,0L10.3,116.8Z"></path>
 </g>
 </svg>

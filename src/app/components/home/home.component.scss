@@ -33,48 +33,48 @@
 }
 
 // Animation
-:host ::ng-deep .letter-s {
+:host ::ng-deep .letter-path--s {
   stroke-dasharray: 308 310;
   stroke-dashoffset: 309;
 }
 
-:host ::ng-deep .letter-a {
+:host ::ng-deep .letter-path--a {
   stroke-dasharray: 345 347;
   stroke-dashoffset: 346;
 }
 
-:host ::ng-deep .letter-l {
+:host ::ng-deep .letter-path--l {
   stroke-dasharray: 357 359;
   stroke-dashoffset: 358;
 }
 
-:host ::ng-deep .letter-m {
+:host ::ng-deep .letter-path--m {
   stroke-dasharray: 470 472;
   stroke-dashoffset: 471;
 }
 
-:host ::ng-deep .letter-j {
+:host ::ng-deep .letter-path--j {
   stroke-dasharray: 196 198;
   stroke-dashoffset: 197;
 }
 
-:host ::ng-deep .letter {
+:host ::ng-deep .letter-path {
   animation: letter-draw 2666ms ease 0s forwards;
 }
 
-:host ::ng-deep .tile-wrapper:nth-child(3) .letter {
+:host ::ng-deep .tile-wrapper:nth-child(3) .letter-path {
   animation-delay: .3s;
 }
 
-:host ::ng-deep .tile-wrapper:nth-child(5) .letter {
+:host ::ng-deep .tile-wrapper:nth-child(5) .letter-path {
   animation-delay: .75s;
 }
 
-:host ::ng-deep .tile-wrapper:nth-child(7) .letter {
+:host ::ng-deep .tile-wrapper:nth-child(7) .letter-path {
   animation-delay: 1.05s;
 }
 
-:host ::ng-deep .tile-wrapper:nth-child(8) .letter {
+:host ::ng-deep .tile-wrapper:nth-child(8) .letter-path {
   animation-delay: 1.2s;
 }
 
