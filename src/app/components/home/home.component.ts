@@ -17,11 +17,11 @@ import { InfosService } from 'src/app/services/infos.service';
 export class HomeComponent implements OnInit {
   private _alive: boolean = true;
   lettersPosition = [
-    { index: 0, letter: 'S' },
-    { index: 2, letter: 'L' },
-    { index: 4, letter: 'M' },
-    { index: 6, letter: 'J' },
-    { index: 7, letter: 'A' }
+    { index: 0, letter: 's' },
+    { index: 2, letter: 'l' },
+    { index: 4, letter: 'm' },
+    { index: 6, letter: 'j' },
+    { index: 7, letter: 'a' }
   ];
   tiles: Tile[] = [];
   lightboxIndex: number;
