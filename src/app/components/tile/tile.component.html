@@ -2,7 +2,8 @@
   <button *ngIf="data.letter" class="content" (click)="openInfos()"
     [inlineSVG]="'/assets/images/letters/' + data.letter + '-animated.svg'"></button>
   <div *ngIf="data.images" class="content is-group">
-    <button *ngFor="let image of data.images" (click)="openLightbox(image)"><img draggable="false"
-        [src]="image.thumbUrl" [alt]="image.title"></button>
+    <button *ngFor="let image of data.images" class="shine" (click)="openLightbox(image)">
+      <img draggable="false" [src]="image.thumbUrl" [alt]="image.title">
+    </button>
   </div>
 </div>
