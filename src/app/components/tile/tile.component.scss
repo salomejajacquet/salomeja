@@ -38,3 +38,16 @@
     }
   }
 }
+
+// :host ::ng-deep svg {
+  // width: 100%;
+  // position: absolute;
+  // top: 50%;
+  // transform: translateY(-50%);
+  // left: 0;
+  // z-index: 99;
+
+  // g {
+  //   width: 100%;
+  // }
+// }
