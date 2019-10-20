@@ -1,6 +1,6 @@
 <main class="main">
   <ul class="tiles" [ngClass]="{'is-visible': displayLetters}">
-    <app-tile *ngFor="let tile of tiles; let i = index" [@homeFadeInAnimation]="{value:'',params:{delay:i*100}}"
+    <app-tile *ngFor="let tile of tiles; let i = index" [@homeFadeInAnimation]="{value:'',params:{delay:i*150}}"
       [data]="tile"></app-tile>
   </ul>
 </main>

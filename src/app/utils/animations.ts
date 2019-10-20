@@ -71,9 +71,16 @@ export const lightboxAnimation = trigger('lightboxAnimation', [
   ])
 ]);
 
+// export const homeFadeInAnimation = trigger('homeFadeInAnimation', [
+//   transition(':enter', [
+//     style({ opacity: 0, transform: 'scale(.97) translate3d(-4%, 4%, 0)' }),
+//     animate('.8s {{delay}}ms ease', style({ opacity: 1, transform: 'scale(1) translate3d(0, 0, 0)' })),
+//   ], { params: { delay: 0 } })
+// ]);
+
 export const homeFadeInAnimation = trigger('homeFadeInAnimation', [
   transition(':enter', [
-    style({ opacity: 0, transform: 'scale(.97) translate3d(-4%, 4%, 0)' }),
-    animate('.8s {{delay}}ms ease', style({ opacity: 1, transform: 'scale(1) translate3d(0, 0, 0)' })),
+    style({ opacity: 0 }),
+    animate('.4s {{delay}}ms ease', style({ opacity: 1 })),
   ], { params: { delay: 0 } })
 ]);
