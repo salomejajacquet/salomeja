@@ -51,6 +51,8 @@
 :host ::ng-deep .letter-path--m {
   stroke-dasharray: 470 472;
   stroke-dashoffset: 471;
+
+  stroke-miterlimit: 5;
 }
 
 :host ::ng-deep .letter-path--j {
@@ -59,6 +61,9 @@
 }
 
 :host ::ng-deep .letter-path {
+  stroke-width: 1;
+  stroke: black;
+  fill: none;
   animation: letter-draw 2666ms ease 0s forwards;
 }
 
