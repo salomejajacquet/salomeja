@@ -1,8 +1,11 @@
-// @import url('//fonts.googleapis.com/css?family=Poppins:100,200,300,400|Material+Icons');
+@font-face {
+  font-family: 'Garamond';
+  src: url('~src/assets/fonts/garamond-be-regular.ttf');
+}
 
 @font-face {
   font-family: 'Garamond Italic';
-  src: url('~src/assets/fonts/GaramBEIta.pfm');
+  src: url('~src/assets/fonts/garamond-be-italic.ttf');
 }
 
 @import '~src/assets/scss/variables';
