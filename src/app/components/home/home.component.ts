@@ -72,7 +72,11 @@ export class HomeComponent implements OnInit {
     const images = [];
 
     projects.map((project: any) => {
+      // console.log(project);
       project.images.map((image: any) => {
+        image.projectTitle = project.title;
+        image.projectDate = project.date;
+        image.projectDescription = project.description;
         images.push(image);
       });
     });

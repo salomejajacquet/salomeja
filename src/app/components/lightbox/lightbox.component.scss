@@ -25,40 +25,52 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba($color-black, 1);
+  background: $color-white;
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.list-wrapper {
+  position: relative;
+  height: 100%;
 }
 
 .list {
   display: flex;
   height: 100%;
-  padding-top: 1rem;
-  flex: 1;
 
   &.is-animated {
-    // transition: transform 1s $ease-out-quint;
     transition: transform .3s ease-out;
   }
 }
 
+.left,
+.right {
+  width: 24rem;
+  background: $color-white;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 1rem;
+}
+
+.left {
+  padding-right: 3rem;
+}
+
 .dialog {
+  width: 100%;
   height: 100%;
   flex-shrink: 0;
   position: relative;
   z-index: 2;
-  opacity: .2;
-  filter: grayscale(100%);
-  margin: 0 .5rem;
-  // transition: all 1s $ease-out-quint;
   transition: all .3s ease-out;
-
-  &.is-visible {
-    opacity: 1;
-    filter: grayscale(0);
-  }
-
-  &:first-child {
-    margin-left: 0;
-  }
 
   button {
     width: 100%;
@@ -66,30 +78,20 @@
   }
 }
 
-.caption {
-  color: $color-white;
-  padding: 1rem;
-  text-align: center;
-  position: relative;
-  z-index: 2;
+.project-title {
+  text-transform: uppercase;
+}
+
+.project-description {
+  margin-top: 1rem;
+}
+
+.image-title {
+  font-family: $font-family-italic;
 }
 
 .close-button {
   position: absolute;
-  top: .75rem;
-  right: .75rem;
-  z-index: 2;
-  display: flex;
-  opacity: .5;
-  transition: opacity .15s;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  img {
-    margin: auto;
-    width: 2.2rem;
-    height: 2.2rem;
-  }
+  top: 0;
+  right: 1rem;
 }

@@ -9,7 +9,7 @@ export class Tile {
     if (data.images) {
       self.images = [];
       data.images.map((image: any) => {
-        self.images.push(new TileImage(image.image));
+        self.images.push(new TileImage(image));
         // self.images.push(image.image.image);
       });
     }
@@ -22,11 +22,19 @@ export class TileImage {
   bigUrl: string;
   thumbUrl: string;
   title: string;
+  description: string;
+  projectTitle: string;
+  projectDate: string;
+  projectDescription: string;
 
   constructor(data: any) {
     // console.log(data);
-    this.title = data.title;
-    this.thumbUrl = data.image.data.thumbnails.find(thumbnail => thumbnail.dimension == '100x100').url;
-    this.bigUrl = data.image.data.thumbnails.find(thumbnail => thumbnail.dimension == '1200x1200').url;
+    this.title = data.image.title;
+    this.description = data.image.description;
+    this.thumbUrl = data.image.image.data.thumbnails.find(thumbnail => thumbnail.dimension == '100x100').url;
+    this.bigUrl = data.image.image.data.thumbnails.find(thumbnail => thumbnail.dimension == '1200x1200').url;
+    this.projectTitle = data.projectTitle;
+    this.projectDate = data.projectDate;
+    this.projectDescription = data.projectDescription;
   }
 }

@@ -9,7 +9,6 @@ import { TileImage } from 'src/app/models/tile.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LightboxComponent implements OnInit, OnDestroy {
-  @ViewChild('caption', { static: true }) caption: ElementRef;
   @Input() lightboxIndex: number;
   private _keydownListener: EventListener;
   private _resizeListener: EventListener;
@@ -28,6 +27,7 @@ export class LightboxComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.images = this.lightboxService.images;
+    // console.log(this.images);
     this._keydownListener = this.onKeydown.bind(this);
     window.addEventListener('keydown', this._keydownListener);
     this._resizeListener = this.onWindowResize.bind(this);
@@ -42,7 +42,7 @@ export class LightboxComponent implements OnInit, OnDestroy {
   }
 
   setDialogSize() {
-    const height = window.innerHeight - this.caption.nativeElement.clientHeight - this.padding;
+    const height = window.innerHeight - 2 * this.padding;
     this.entryWidth = 2 * height / 3;
     this.ref.markForCheck();
   }
@@ -50,7 +50,7 @@ export class LightboxComponent implements OnInit, OnDestroy {
   setTranslate() {
     this.currentImage = this.images[this.lightboxIndex];
     this.sideOffset = (window.innerWidth - this.entryWidth) / 2;
-    this.translate = (this.entryWidth + this.padding) * this.lightboxIndex;
+    this.translate = this.entryWidth * this.lightboxIndex;
     this.ref.markForCheck();
   }
 

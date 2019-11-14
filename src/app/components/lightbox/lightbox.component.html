@@ -1,22 +1,29 @@
 <div class="lightbox">
   <div class="overlay" (click)="close()"></div>
 
-  <ul class="list" [ngClass]="{'is-animated': isAnimated}" [ngStyle]="{
-    'transform': 'translate3d(-' + translate + 'px, 0, 0)',
-    'margin-left': sideOffset + 'px'
-  }">
-    <li *ngFor="let image of images; let i = index" class="dialog" [ngClass]="{'is-visible': i == lightboxIndex}"
-      [ngStyle]="{'width': entryWidth + 'px'}">
-      <app-lightbox-entry *ngIf="lightboxIndex == i" [image]="image"></app-lightbox-entry>
-      <button *ngIf="i < lightboxIndex || i > lightboxIndex" (click)="onClickDialog(i)">
-        <app-lightbox-entry [image]="image"></app-lightbox-entry>
-      </button>
-    </li>
-  </ul>
-
-  <div class="caption" #caption>{{currentImage.title}}</div>
-
-  <button class="close-button" (click)="close()">
-    <img src="/assets/images/icon-close.svg" alt="">
-  </button>
+  <div class="content">
+    <div class="left">
+      <h2 class="project-title">{{currentImage.projectTitle}}</h2>
+      <span class="project-date">{{currentImage.projectDate}}</span>
+      <p class="project-description">{{currentImage.projectDescription}}</p>
+    </div>
+    <div class="list-wrapper" [ngStyle]="{'width': entryWidth + 'px'}">
+      <ul class="list" [ngClass]="{'is-animated': isAnimated}" [ngStyle]="{
+        'transform': 'translate3d(-' + translate + 'px, 0, 0)'
+      }">
+        <li *ngFor="let image of images; let i = index" class="dialog" [ngStyle]="{'width': entryWidth + 'px'}">
+          <app-lightbox-entry *ngIf="lightboxIndex == i" [image]="image"></app-lightbox-entry>
+          <button *ngIf="i < lightboxIndex || i > lightboxIndex" (click)="onClickDialog(i)">
+            <app-lightbox-entry [image]="image"></app-lightbox-entry>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="right">
+      <h2 class="image-title">{{currentImage.title}}</h2>
+      <p class="image-description">{{currentImage.description}}</p>
+      <button class="close-button" aria-label="Close button" (click)="close()"
+        inlineSVG="/assets/images/icon-cross-animated.svg"></button>
+    </div>
+  </div>
 </div>
