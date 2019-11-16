@@ -52,8 +52,7 @@
 
 .left,
 .right {
-  width: 24rem;
-  background: $color-white;
+  width: $lightbox-bloc-size;
   position: relative;
   z-index: 2;
   height: 100%;
@@ -71,6 +70,10 @@
   position: relative;
   z-index: 2;
   transition: all .3s ease-out;
+
+  &:not(:last-child) {
+    margin-right: $lightbox-bloc-size;
+  }
 
   button {
     width: 100%;

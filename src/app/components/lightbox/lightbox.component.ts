@@ -16,9 +16,9 @@ export class LightboxComponent implements OnInit, OnDestroy {
   padding: number = 16;
   entryWidth: number;
   translate: number;
-  sideOffset: number;
   isAnimated: boolean = false;
   currentImage: TileImage;
+  blocWidth: number = 384;
 
   constructor(
     private lightboxService: LightboxService,
@@ -49,8 +49,7 @@ export class LightboxComponent implements OnInit, OnDestroy {
 
   setTranslate() {
     this.currentImage = this.images[this.lightboxIndex];
-    this.sideOffset = (window.innerWidth - this.entryWidth) / 2;
-    this.translate = this.entryWidth * this.lightboxIndex;
+    this.translate = (this.entryWidth + this.blocWidth) * this.lightboxIndex;
     this.ref.markForCheck();
   }
 
