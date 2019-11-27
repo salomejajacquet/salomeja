@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { slideInAnimation, lightboxAnimation, homeFadeInAnimation } from 'src/app/utils/animations';
+import { slideInAnimation, fadeInAnimation, lightboxAnimation } from 'src/app/utils/animations';
 import { Api } from 'src/app/services/api.service';
 import { Tile } from 'src/app/models/tile.model';
 import { LightboxService } from 'src/app/services/lightbox.service';
@@ -12,7 +12,7 @@ import { InfosService } from 'src/app/services/infos.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [slideInAnimation, lightboxAnimation, homeFadeInAnimation]
+  animations: [slideInAnimation, fadeInAnimation, lightboxAnimation]
 })
 export class HomeComponent implements OnInit {
   private _alive: boolean = true;

@@ -9,9 +9,10 @@ $font-family-italic: 'Garamond Italic', Helvetica, sans-serif;
 $base-font-size: 1rem;
 
 // Sizes
-$spacing: 1rem;
+$spacing: .75rem;
 $group-spacing: $spacing;
 $lightbox-bloc-size: 24rem;
+$minimum-tile-width: 7rem;
 
 // Easing
 $ease-out-quint: cubic-bezier(.23, 1, .32, 1);

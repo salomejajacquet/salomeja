@@ -4,13 +4,6 @@
   width: 100%;
   height: 100%;
 
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // height: 100vh;
-  // background: $color-background-infos;
-
   &.is-scrollable {
     overflow: auto;
   }
@@ -19,7 +12,7 @@
 .letters {
   display: grid;
   grid-gap: $spacing;
-  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax($minimum-tile-width, 1fr));
   padding: $spacing;
   opacity: 0;
 
@@ -35,6 +28,7 @@
 
   img {
     width: 100%;
+    height: 100%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -42,14 +36,10 @@
 }
 
 .inner {
-  max-width: 70.2rem;
+  max-width: 65rem;
   padding: 1rem;
+  padding-top: 0;
   padding-right: 0;
-  font-size: 1.2rem;
-}
-
-.title {
-  font-size: 2rem;
 }
 
 .body {

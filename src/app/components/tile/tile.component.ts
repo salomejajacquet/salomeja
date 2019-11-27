@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef } from '@angular/core';
 import { Tile } from 'src/app/models/tile.model';
 import { LightboxService } from 'src/app/services/lightbox.service';
 import { InfosService } from 'src/app/services/infos.service';
@@ -11,10 +11,12 @@ import { InfosService } from 'src/app/services/infos.service';
 })
 export class TileComponent implements OnInit {
   @Input() data: Tile;
+  timeout: any;
 
   constructor(
     private lightboxService: LightboxService,
-    private infosService: InfosService
+    private infosService: InfosService,
+    private ref: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -32,5 +34,16 @@ export class TileComponent implements OnInit {
 
   openLightbox(image: any) {
     this.lightboxService.open(image);
+  }
+
+  onMouseEnter(image: any) {
+    image.displayHover = true;
+    this.ref.markForCheck();
+
+    this.timeout = setTimeout(() => {
+      image.displayHover = false;
+      this.ref.markForCheck();
+      clearTimeout(this.timeout);
+    }, 750);
   }
 }

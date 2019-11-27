@@ -3,7 +3,7 @@
 .tiles {
   display: grid;
   grid-gap: $spacing;
-  grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax($minimum-tile-width, 1fr));
   padding: $spacing;
   opacity: 0;
 
@@ -64,24 +64,24 @@
   stroke-width: 1;
   stroke: black;
   fill: none;
-  animation: letter-draw 2666ms ease 0s forwards;
+  animation: letter-draw 1.5s linear 0s forwards;
 }
 
-:host ::ng-deep .tile-wrapper:nth-child(3) .letter-path {
-  animation-delay: .3s;
-}
+// :host ::ng-deep .tile-wrapper:nth-child(3) .letter-path {
+//   animation-delay: .6s;
+// }
 
-:host ::ng-deep .tile-wrapper:nth-child(5) .letter-path {
-  animation-delay: .75s;
-}
+// :host ::ng-deep .tile-wrapper:nth-child(5) .letter-path {
+//   animation-delay: 1.5s;
+// }
 
-:host ::ng-deep .tile-wrapper:nth-child(7) .letter-path {
-  animation-delay: 1.05s;
-}
+// :host ::ng-deep .tile-wrapper:nth-child(7) .letter-path {
+//   animation-delay: 2.1s;
+// }
 
-:host ::ng-deep .tile-wrapper:nth-child(8) .letter-path {
-  animation-delay: 1.2s;
-}
+// :host ::ng-deep .tile-wrapper:nth-child(8) .letter-path {
+//   animation-delay: 2.4s;
+// }
 
 @keyframes letter-draw {
   100% {

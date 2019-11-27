@@ -57,7 +57,7 @@
   transform: skewX(-25deg);
 }
 
-.shine:hover::before {
+.shine.is-hover:before {
   animation: shine .75s;
 }
 
@@ -69,6 +69,7 @@
 
 :host ::ng-deep svg {
   width: 100%;
+  height: 100%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

@@ -61,15 +61,15 @@ export const slideInAnimation = trigger('slideInAnimation', [
   ])
 ]);
 
-export const lightboxAnimation = trigger('lightboxAnimation', [
-  transition(':enter', [
-    style({ opacity: 0, transform: 'scale(1.1)' }),
-    animate('.15s ease')
-  ]),
-  transition(':leave', [
-    animate('.15s ease', style({ opacity: 0, transform: 'scale(1.1)' }))
-  ])
-]);
+// export const lightboxAnimation = trigger('lightboxAnimation', [
+//   transition(':enter', [
+//     style({ opacity: 0, transform: 'scale(1.1)' }),
+//     animate('.15s ease')
+//   ]),
+//   transition(':leave', [
+//     animate('.15s ease', style({ opacity: 0, transform: 'scale(1.1)' }))
+//   ])
+// ]);
 
 // export const homeFadeInAnimation = trigger('homeFadeInAnimation', [
 //   transition(':enter', [
@@ -83,4 +83,18 @@ export const homeFadeInAnimation = trigger('homeFadeInAnimation', [
     style({ opacity: 0 }),
     animate('.4s {{delay}}ms ease', style({ opacity: 1 })),
   ], { params: { delay: 0 } })
+]);
+
+export const fadeInAnimation = trigger('fadeInAnimation', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate('2s ease-out')
+  ])
+]);
+
+export const lightboxAnimation = trigger('lightboxAnimation', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate('.3s ease-out')
+  ])
 ]);

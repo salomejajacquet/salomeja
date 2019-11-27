@@ -6,12 +6,6 @@
 	.st0{clip-path:url(#SVGID_2_);fill:none;stroke:#000000;stroke-width:0.75;}
 </style>
 <g>
-	<defs>
-		<rect id="SVGID_1_" y="0" width="35.3" height="53.1"/>
-	</defs>
-	<clipPath id="SVGID_2_">
-		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
-	</clipPath>
 	<line class="st0" x1="35" y1="0.2" x2="0.3" y2="52.9"/>
 	<line class="st0" x1="0.3" y1="0.2" x2="35" y2="52.9"/>
 </g>
