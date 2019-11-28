@@ -1,14 +1,24 @@
 <div class="infos" [ngClass]="{'is-scrollable': displayLetters}">
-  <ul class="letters" [ngClass]="{'is-visible': displayLetters}">
-    <li><img src="/assets/images/letters/S.svg" alt="Letter"></li>
-    <li></li>
-    <li><img src="/assets/images/letters/L.svg" alt="Letter"></li>
-    <li></li>
-    <li><img src="/assets/images/letters/M.svg" alt="Letter"></li>
-    <li></li>
-    <li><img src="/assets/images/letters/J.svg" alt="Letter"></li>
-    <li><img src="/assets/images/letters/A.svg" alt="Letter"></li>
-  </ul>
+  <div class="letters" [ngClass]="{'is-visible': displayLetters}">
+    <button (click)="close()">
+      <img src="/assets/images/letters/S.svg" alt="Letter">
+    </button>
+    <div></div>
+    <button (click)="close()">
+      <img src="/assets/images/letters/L.svg" alt="Letter">
+    </button>
+    <div></div>
+    <button (click)="close()">
+      <img src="/assets/images/letters/M.svg" alt="Letter">
+    </button>
+    <div></div>
+    <button (click)="close()">
+      <img src="/assets/images/letters/J.svg" alt="Letter">
+    </button>
+    <button (click)="close()">
+      <img src="/assets/images/letters/A.svg" alt="Letter">
+    </button>
+  </div>
   <div class="inner">
     <h2 class="title">
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. In libero sequi, voluptatem inventore dolorem, eligendi
