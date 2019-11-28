@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { slideInAnimation, fadeInAnimation, lightboxAnimation } from 'src/app/utils/animations';
+import { slideInAnimation, lightboxAnimation } from 'src/app/utils/animations';
 import { Api } from 'src/app/services/api.service';
 import { Tile } from 'src/app/models/tile.model';
 import { LightboxService } from 'src/app/services/lightbox.service';
@@ -12,7 +11,7 @@ import { InfosService } from 'src/app/services/infos.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [slideInAnimation, fadeInAnimation, lightboxAnimation]
+  animations: [slideInAnimation, lightboxAnimation]
 })
 export class HomeComponent implements OnInit {
   private _alive: boolean = true;
@@ -63,10 +62,6 @@ export class HomeComponent implements OnInit {
         }
       });
   }
-
-  // prepareRoute(outlet: RouterOutlet) {
-  //   return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-  // }
 
   buildTiles(projects: any) {
     const images = [];

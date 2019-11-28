@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { InfosService } from 'src/app/services/infos.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-infos',
@@ -13,20 +12,8 @@ export class InfosComponent implements OnInit {
 
   constructor(
     private infosService: InfosService,
-    private ref: ChangeDetectorRef,
-    private router: Router
+    private ref: ChangeDetectorRef
   ) { }
-
-  // ngOnInit() {
-  //   setTimeout(() => {
-  //     this.displayLetters = true;
-  //     this.ref.markForCheck();
-  //   }, 800);
-  // }
-
-  // close() {
-  //   this.infosService.open(false);
-  // }
 
   ngOnInit() {
     setTimeout(() => {
@@ -37,6 +24,5 @@ export class InfosComponent implements OnInit {
 
   close() {
     this.infosService.open(false);
-    // this.router.navigateByUrl('/');
   }
 }
