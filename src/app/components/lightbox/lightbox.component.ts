@@ -15,6 +15,7 @@ export class LightboxComponent implements OnInit, OnDestroy {
   images: TileImage[];
   padding: number = 16;
   entryWidth: number;
+  entryHeight: number;
   translate: number;
   isAnimated: boolean = false;
   currentImage: TileImage;
@@ -42,8 +43,9 @@ export class LightboxComponent implements OnInit, OnDestroy {
   }
 
   setDialogSize() {
-    const height = window.innerHeight - 2 * this.padding;
-    this.entryWidth = 2 * height / 3;
+    // const height = window.innerHeight - 2 * this.padding;
+    this.entryHeight = window.innerHeight - 2 * this.padding;
+    this.entryWidth = 2 * this.entryHeight / 3;
     this.ref.markForCheck();
   }
 

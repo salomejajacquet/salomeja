@@ -17,9 +17,7 @@ export class LightboxEntryComponent implements OnInit {
     private ref: ChangeDetectorRef
   ) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   // setQueryParameter() {
   //   // changes the route without moving from the current view or

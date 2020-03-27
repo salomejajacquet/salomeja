@@ -1,5 +1,9 @@
 @import '~src/assets/scss/variables';
 
+:host {
+  height: 100%;
+}
+
 .lightbox-entry {
   height: 100%;
   background: rgba($color-white, .1);
