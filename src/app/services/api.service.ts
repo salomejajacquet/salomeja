@@ -25,8 +25,8 @@ export class Api {
 
   getProjects() {
     return this.client.getItems('project?fields=*.*.*.*')
-      .catch(error => console.error(error))
-      .then(data => {
+      .catch((error: any) => console.error(error))
+      .then((data: any) => {
         // console.log(data);
         // console.log(data.data[0]);
         return data.data;
