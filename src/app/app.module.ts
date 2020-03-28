@@ -10,6 +10,7 @@ import { LightboxComponent } from './components/lightbox/lightbox.component';
 import { LightboxEntryComponent } from './components/lightbox/lightbox-entry/lightbox-entry.component';
 import { InlineSVGModule } from 'ng-inline-svg';
 import { HttpClientModule } from '@angular/common/http';
+import { DeferLoadDirective } from 'src/app/directives/defer-load.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     TileComponent,
     InfosComponent,
     LightboxComponent,
-    LightboxEntryComponent
+    LightboxEntryComponent,
+    DeferLoadDirective
   ],
   imports: [
     BrowserModule,

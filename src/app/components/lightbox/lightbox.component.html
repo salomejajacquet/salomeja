@@ -12,8 +12,7 @@
       }">
         <li *ngFor="let image of images; let i = index" class="dialog"
           [ngStyle]="{'width': entryWidth + 'px', 'height': entryHeight + 'px'}">
-          <app-lightbox-entry *ngIf="lightboxIndex == i" [image]="image"></app-lightbox-entry>
-          <button *ngIf="i < lightboxIndex || i > lightboxIndex" (click)="onClickDialog(i)">
+          <button (click)="onClickDialog(i)" [disabled]="lightboxIndex == i">
             <app-lightbox-entry [image]="image"></app-lightbox-entry>
           </button>
         </li>

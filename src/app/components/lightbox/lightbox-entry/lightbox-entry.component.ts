@@ -1,36 +1,27 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { fadeInAnimation } from 'src/app/utils/animations';
 
 @Component({
   selector: 'app-lightbox-entry',
   templateUrl: './lightbox-entry.component.html',
   styleUrls: ['./lightbox-entry.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [fadeInAnimation]
 })
 export class LightboxEntryComponent implements OnInit {
   @Input() image: any;
   // mobileBreakpoint: number = 767;
+  isInViewport: boolean;
+  isLoaded: boolean;
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
     private ref: ChangeDetectorRef
   ) { }
 
   ngOnInit() { }
 
-  // setQueryParameter() {
-  //   // changes the route without moving from the current view or
-  //   // triggering a navigation event,
-  //   this.router.navigate([], {
-  //     relativeTo: this.route,
-  //     queryParams: {
-  //       open: this.image._id
-  //     },
-  //     queryParamsHandling: 'merge',
-  //     // preserve the existing query params in the route
-  //     // skipLocationChange: true
-  //     // do not trigger navigation
-  //   });
-  // }
+  async onDeferLoad() {
+    this.isInViewport = true;
+    this.ref.markForCheck();
+  }
 }
