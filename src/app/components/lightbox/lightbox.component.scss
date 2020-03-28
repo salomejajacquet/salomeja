@@ -77,10 +77,15 @@
 
 .project-description {
   margin-top: 1rem;
+  white-space: pre-wrap;
 }
 
 .image-title {
   font-family: $font-family-italic;
+}
+
+.image-description {
+  white-space: pre-wrap;
 }
 
 .close-button {

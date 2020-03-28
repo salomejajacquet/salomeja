@@ -35,6 +35,8 @@ export class LightboxComponent implements OnInit, OnDestroy {
     window.addEventListener('resize', this._resizeListener);
     this.setDialogSize();
     this.setTranslate();
+
+    console.log(this.currentImage.projectDescription);
   }
 
   onWindowResize() {
