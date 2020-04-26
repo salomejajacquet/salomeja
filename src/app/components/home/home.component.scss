@@ -67,22 +67,6 @@
   animation: letter-draw 1.5s linear 0s forwards;
 }
 
-// :host ::ng-deep .tile-wrapper:nth-child(3) .letter-path {
-//   animation-delay: .6s;
-// }
-
-// :host ::ng-deep .tile-wrapper:nth-child(5) .letter-path {
-//   animation-delay: 1.5s;
-// }
-
-// :host ::ng-deep .tile-wrapper:nth-child(7) .letter-path {
-//   animation-delay: 2.1s;
-// }
-
-// :host ::ng-deep .tile-wrapper:nth-child(8) .letter-path {
-//   animation-delay: 2.4s;
-// }
-
 @keyframes letter-draw {
   100% {
     stroke-dashoffset: 0;

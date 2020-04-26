@@ -46,30 +46,49 @@
 
 .body {
   display: flex;
-  margin-top: 4rem;
+  margin-top: 3.5rem;
+
+  @media screen and (max-width: $bp-small) {
+    display: block;
+  }
 }
 
 .column {
   width: 50%;
 
+  @media screen and (max-width: $bp-small) {
+    width: 100%;
+  }
+
   &:first-child {
     margin-right: 1rem;
+
+    @media screen and (max-width: $bp-small) {
+      margin-right: 0;
+    }
   }
 }
 
 section {
-  font-weight: 100;
+  @media screen and (max-width: $bp-small) {
+    margin-bottom: 2rem;
+  }
 
   &:not(:last-child) {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
+}
 
-  h3 {
-    font-family: $font-family-italic;
-    margin-left: 2.5rem;
-  }
+.infos-entry:not(:last-child) {
+  margin-bottom: 1rem;
+}
 
-  p:not(:nth-child(2)) {
-    text-indent: 1.8rem;
-  }
+.with-indent {
+  text-indent: 2rem;
+}
+
+.with-list-style span {
+  font-size: .6em;
+  position: relative;
+  top: -2px;
 }

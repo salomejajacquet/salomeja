@@ -18,5 +18,9 @@ $minimum-tile-width: 7rem;
 // Easing
 $ease-out-quint: cubic-bezier(.23, 1, .32, 1);
 
+// Responsive
+$bp-small: 767px;
+$bp-medium: 992px;
+
 // Breakpoints
 @import '~src/assets/scss/breakpoints';
