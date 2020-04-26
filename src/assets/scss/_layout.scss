@@ -24,3 +24,15 @@ img.fade {
   width: 2rem;
   display: inline-block;
 }
+
+::selection {
+  color: $color-accent;
+}
+
+::-moz-selection {
+  color: $color-accent;
+}
+
+a:active {
+  color: $color-accent;
+}
