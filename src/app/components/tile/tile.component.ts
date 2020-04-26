@@ -11,7 +11,6 @@ import { InfosService } from 'src/app/services/infos.service';
 })
 export class TileComponent implements OnInit {
   @Input() data: Tile;
-  timeout: any;
   isLoaded: boolean;
 
   constructor(
@@ -21,7 +20,6 @@ export class TileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // console.log(this.data.images);
     if (this.data.images) {
       this.data.images.map(image => {
         this.lightboxService.addImage(image);
@@ -38,14 +36,20 @@ export class TileComponent implements OnInit {
   }
 
   onMouseEnter(image: any) {
-    image.displayHover = true;
+    image.displayHover = false;
+    clearTimeout(image.timeout);
     this.ref.markForCheck();
 
-    this.timeout = setTimeout(() => {
-      image.displayHover = false;
+    setTimeout(() => {
+      image.displayHover = true;
       this.ref.markForCheck();
-      clearTimeout(this.timeout);
-    }, 750);
+
+      image.timeout = setTimeout(() => {
+        image.displayHover = false;
+        this.ref.markForCheck();
+        clearTimeout(image.timeout);
+      }, 750);
+    }, 10);
   }
 
   onLoad() {

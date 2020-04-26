@@ -4,7 +4,7 @@
   <div *ngIf="data.images" class="content is-group">
     <button *ngFor="let image of data.images" class="shine" [ngClass]="{'is-hover': image.displayHover}"
       (click)="openLightbox(image)" (mouseenter)="onMouseEnter(image)">
-      <img draggable="false" [src]="image.thumbUrl" [alt]="image.title" class="fade" (load)="onLoad()"
+      <img draggable="false" [src]="image.thumbUrl" alt="" class="fade" (load)="onLoad()"
         [ngClass]="{'is-loaded': isLoaded}">
     </button>
   </div>
