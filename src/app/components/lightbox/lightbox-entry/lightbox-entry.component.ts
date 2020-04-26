@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { fadeInAnimation } from 'src/app/utils/animations';
+import { fadeInAnimation, fadeOutAnimation } from 'src/app/utils/animations';
 
 @Component({
   selector: 'app-lightbox-entry',
   templateUrl: './lightbox-entry.component.html',
   styleUrls: ['./lightbox-entry.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [fadeInAnimation]
+  animations: [fadeInAnimation, fadeOutAnimation]
 })
 export class LightboxEntryComponent implements OnInit {
   @Input() image: any;
@@ -22,6 +22,11 @@ export class LightboxEntryComponent implements OnInit {
 
   async onDeferLoad() {
     this.isInViewport = true;
+    this.ref.markForCheck();
+  }
+
+  onLoad() {
+    this.isLoaded = true;
     this.ref.markForCheck();
   }
 }

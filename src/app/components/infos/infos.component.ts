@@ -23,6 +23,8 @@ export class InfosComponent implements OnInit {
   }
 
   close() {
+    this.displayLetters = false;
     this.infosService.open(false);
+    this.ref.markForCheck();
   }
 }

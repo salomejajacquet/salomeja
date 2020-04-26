@@ -13,13 +13,13 @@ export class LightboxComponent implements OnInit, OnDestroy {
   private _keydownListener: EventListener;
   private _resizeListener: EventListener;
   images: TileImage[];
-  padding: number = 16;
+  padding: number = 6;
   entryWidth: number;
   entryHeight: number;
   translate: number;
   isAnimated: boolean = false;
   currentImage: TileImage;
-  blocWidth: number = 384;
+  blocWidth: number = 22.8 * 16;
 
   constructor(
     private lightboxService: LightboxService,
@@ -28,15 +28,12 @@ export class LightboxComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.images = this.lightboxService.images;
-    // console.log(this.images);
     this._keydownListener = this.onKeydown.bind(this);
     window.addEventListener('keydown', this._keydownListener);
     this._resizeListener = this.onWindowResize.bind(this);
     window.addEventListener('resize', this._resizeListener);
     this.setDialogSize();
     this.setTranslate();
-
-    console.log(this.currentImage.projectDescription);
   }
 
   onWindowResize() {
@@ -45,7 +42,6 @@ export class LightboxComponent implements OnInit, OnDestroy {
   }
 
   setDialogSize() {
-    // const height = window.innerHeight - 2 * this.padding;
     this.entryHeight = window.innerHeight - 2 * this.padding;
     this.entryWidth = 2 * this.entryHeight / 3;
     this.ref.markForCheck();

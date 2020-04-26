@@ -12,6 +12,7 @@ import { InfosService } from 'src/app/services/infos.service';
 export class TileComponent implements OnInit {
   @Input() data: Tile;
   timeout: any;
+  isLoaded: boolean;
 
   constructor(
     private lightboxService: LightboxService,
@@ -45,5 +46,10 @@ export class TileComponent implements OnInit {
       this.ref.markForCheck();
       clearTimeout(this.timeout);
     }, 750);
+  }
+
+  onLoad() {
+    this.isLoaded = true;
+    this.ref.markForCheck();
   }
 }

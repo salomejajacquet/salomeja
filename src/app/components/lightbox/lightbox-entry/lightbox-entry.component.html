@@ -1,3 +1,5 @@
 <div class="lightbox-entry" (deferLoad)="onDeferLoad()">
-  <img *ngIf="isInViewport" [src]="image.bigUrl" [alt]="image.title" [@fadeInAnimation]>
+  <app-loader class="loader" *ngIf="!isLoaded"></app-loader>
+  <img *ngIf="isInViewport" [src]="image.bigUrl" [alt]="image.title" class="fade" (load)="onLoad()"
+    [ngClass]="{'is-loaded': isLoaded}">
 </div>

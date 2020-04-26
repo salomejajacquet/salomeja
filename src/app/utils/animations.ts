@@ -92,6 +92,14 @@ export const fadeInAnimation = trigger('fadeInAnimation', [
   ])
 ]);
 
+export const fadeOutAnimation = trigger('fadeOutAnimation', [
+  transition(':leave', [
+    animate(600, style({
+      opacity: 0,
+    }))
+  ])
+]);
+
 export const lightboxAnimation = trigger('lightboxAnimation', [
   transition(':enter', [
     style({ opacity: 0 }),

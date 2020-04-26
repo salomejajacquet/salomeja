@@ -11,6 +11,7 @@ import { LightboxEntryComponent } from './components/lightbox/lightbox-entry/lig
 import { InlineSVGModule } from 'ng-inline-svg';
 import { HttpClientModule } from '@angular/common/http';
 import { DeferLoadDirective } from 'src/app/directives/defer-load.directive';
+import { LoaderComponent } from 'src/app/components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DeferLoadDirective } from 'src/app/directives/defer-load.directive';
     InfosComponent,
     LightboxComponent,
     LightboxEntryComponent,
-    DeferLoadDirective
+    DeferLoadDirective,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
