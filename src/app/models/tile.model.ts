@@ -30,11 +30,17 @@ export class TileImage {
   constructor(data: any) {
     // console.log(data.image.image.data);
     this.title = data.image.title;
-    this.description = data.image.description;
     this.thumbUrl = data.image.image.data.thumbnails.find(thumbnail => thumbnail.dimension == '100x100').url;
     this.bigUrl = data.image.image.data.thumbnails.find(thumbnail => thumbnail.dimension == '1200x1200').url;
     this.projectTitle = data.projectTitle;
     this.projectDate = data.projectDate;
-    this.projectDescription = data.projectDescription;
+
+    if (data.image.description) {
+      this.description = data.image.description;
+    }
+
+    if (data.projectDescription) {
+      this.projectDescription = data.projectDescription.replace('{alinea}', '<span class="alinea"></span>');
+    }
   }
 }

@@ -4,7 +4,7 @@
     <div class="left">
       <h2 class="project-title">{{currentImage.projectTitle}}</h2>
       <span class="project-date">{{currentImage.projectDate}}</span>
-      <p class="project-description">{{currentImage.projectDescription}}</p>
+      <p class="project-description" [innerHtml]="currentImage.projectDescription"></p>
     </div>
     <div class="list-wrapper" [ngStyle]="{'width': entryWidth + 'px'}">
       <ul class="list" [ngClass]="{'is-animated': isAnimated}" [ngStyle]="{
@@ -20,7 +20,7 @@
     </div>
     <div class="right">
       <h2 class="image-title">{{currentImage.title}}</h2>
-      <p class="image-description">{{currentImage.description}}</p>
+      <p class="image-description" [innerHtml]="currentImage.description"></p>
       <button class="close-button" aria-label="Close button" (click)="close()"
         inlineSVG="/assets/images/icon-cross-animated.svg"></button>
     </div>
