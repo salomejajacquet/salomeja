@@ -19,7 +19,7 @@ export class InfosComponent implements OnInit {
     setTimeout(() => {
       this.displayLetters = true;
       this.ref.markForCheck();
-    }, 400);
+    }, 650);
   }
 
   close() {

@@ -12,7 +12,7 @@ $loader-width: 1.5rem;
   border-radius: 50%;
   border-width: $border-width;
   animation: spin .4s linear infinite;
-  border-color: rgba($color-black, .2) transparent transparent rgba($color-black, .2);
+  border-color: $color-black transparent transparent $color-black;
 }
 
 @keyframes spin {

@@ -54,10 +54,10 @@ import { transition, trigger, query, style, animate, group } from '@angular/anim
 export const slideInAnimation = trigger('slideInAnimation', [
   transition(':enter', [
     style({ transform: 'translate3d(0, 100vh, 0)' }),
-    animate('.3s ease-out')
+    animate('.6s ease-out')
   ]),
   transition(':leave', [
-    animate('.3s ease-out', style({ transform: 'translate3d(0, 100vh, 0)' }))
+    animate('.6s ease-out', style({ transform: 'translate3d(0, 100vh, 0)' }))
   ])
 ]);
 
