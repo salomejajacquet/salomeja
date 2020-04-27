@@ -36,7 +36,7 @@ export class TileImage {
     this.projectDate = data.projectDate;
 
     if (data.image.description) {
-      this.description = data.image.description;
+      this.description = data.image.description.replace('{alinea}', '<span class="alinea"></span>');
     }
 
     if (data.projectDescription) {
