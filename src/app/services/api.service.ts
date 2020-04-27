@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import DirectusSDK from "@directus/sdk-js";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class Api {
   client: any;
   domain: string = 'https://api.paulgiron.com';
@@ -14,13 +12,6 @@ export class Api {
       url: this.domain,
       project: this.project
     });
-
-    // this.client.login({
-    //   email: 'pol.giron@gmail.com',
-    //   // email: 'luke@gmail.com',
-    //   password: 'pignouf',
-    //   // storage: window.localStorage
-    // });
   }
 
   getProjects() {
@@ -29,7 +20,6 @@ export class Api {
       .then((data: any) => {
         // console.log('data');
         // console.log(data);
-        // console.log(data.data[0]);
         return data.data;
       });
   }

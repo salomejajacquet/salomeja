@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LightboxService {
   private _lightbox: BehaviorSubject<number> = new BehaviorSubject<number>(null);
   images: any[] = [];

@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class InfosService {
   private _openInfos: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 

@@ -1,7 +1,9 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef } from '@angular/core';
-import { Tile } from 'src/app/models/tile.model';
+import { Tile, TileImage } from 'src/app/models/tile.model';
 import { LightboxService } from 'src/app/services/lightbox.service';
 import { InfosService } from 'src/app/services/infos.service';
+import { HomeService } from 'src/app/services/home.service';
+import { takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tile',
@@ -11,12 +13,15 @@ import { InfosService } from 'src/app/services/infos.service';
 })
 export class TileComponent implements OnInit {
   @Input() data: Tile;
+  private _alive: boolean = true;
   isLoaded: boolean;
+  hoverProjectId: number = 0;
 
   constructor(
     private lightboxService: LightboxService,
     private infosService: InfosService,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
+    private homeService: HomeService
   ) { }
 
   ngOnInit() {
@@ -25,6 +30,13 @@ export class TileComponent implements OnInit {
         this.lightboxService.addImage(image);
       });
     }
+
+    this.homeService.onHoverProjectIdChannel()
+      .pipe(takeWhile(() => this._alive))
+      .subscribe((id: number) => {
+        this.hoverProjectId = id;
+        this.ref.markForCheck();
+      });
   }
 
   openInfos() {
@@ -50,10 +62,23 @@ export class TileComponent implements OnInit {
         clearTimeout(image.timeout);
       }, 750);
     }, 10);
+
+
+
+    // TEST
+    this.homeService.setHoverProjectId(image.projectId);
+  }
+
+  onMouseLeave() {
+    this.homeService.setHoverProjectId(0);
   }
 
   onLoad() {
     this.isLoaded = true;
     this.ref.markForCheck();
+  }
+
+  ngOnDestroy() {
+    this._alive = false;
   }
 }
