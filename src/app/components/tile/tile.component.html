@@ -3,7 +3,7 @@
     [inlineSVG]="'/assets/images/letters/' + data.letter + '-animated.svg'"></button>
   <div *ngIf="data.images" class="content">
     <button *ngFor="let image of data.images" class="button-image shine"
-      [ngClass]="{'is-hover': image.displayHover, 'is-active': hoverProjectId == image.projectId}"
+      [ngClass]="{'is-hover': image.displayHover, 'is-hidden': hoverProjectId && hoverProjectId != image.projectId}"
       (click)="openLightbox(image)" (mouseenter)="onMouseEnter(image)" (mouseleave)="onMouseLeave()">
       <img draggable="false" [src]="image.thumbUrl" alt="" class="fade" (load)="onLoad()"
         [ngClass]="{'is-loaded': isLoaded}">

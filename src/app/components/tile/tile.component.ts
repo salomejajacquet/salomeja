@@ -15,7 +15,7 @@ export class TileComponent implements OnInit {
   @Input() data: Tile;
   private _alive: boolean = true;
   isLoaded: boolean;
-  hoverProjectId: number = 0;
+  hoverProjectId: number;
 
   constructor(
     private lightboxService: LightboxService,
@@ -63,14 +63,12 @@ export class TileComponent implements OnInit {
       }, 750);
     }, 10);
 
-
-
-    // TEST
+    // HOVER EFFECT
     this.homeService.setHoverProjectId(image.projectId);
   }
 
   onMouseLeave() {
-    this.homeService.setHoverProjectId(0);
+    this.homeService.setHoverProjectId(null);
   }
 
   onLoad() {
