@@ -37,22 +37,6 @@ export class TileComponent implements OnInit {
   }
 
   onMouseEnter(image: any) {
-    image.displayHover = false;
-    clearTimeout(image.timeout);
-    this.ref.markForCheck();
-
-    setTimeout(() => {
-      image.displayHover = true;
-      this.ref.markForCheck();
-
-      image.timeout = setTimeout(() => {
-        image.displayHover = false;
-        this.ref.markForCheck();
-        clearTimeout(image.timeout);
-      }, 750);
-    }, 10);
-
-    // HOVER EFFECT
     this.homeService.setHoverProjectId(image.projectId);
   }
 
