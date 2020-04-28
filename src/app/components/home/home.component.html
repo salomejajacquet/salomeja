@@ -1,6 +1,7 @@
 <main class="main">
   <ul class="tiles" [ngClass]="{'is-visible': displayLetters}">
-    <app-tile *ngFor="let tile of tiles; let i = index" [data]="tile" [index]="i" class="tile-wrapper"></app-tile>
+    <app-tile *ngFor="let tile of tiles; let i = index; trackBy: trackByFunction" class="tile-wrapper" [data]="tile"
+      [hoverProjectId]="hoverProjectId" [projectTitleLetter]="tile.projectTitleLetter"></app-tile>
   </ul>
 </main>
 

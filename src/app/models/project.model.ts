@@ -1,13 +1,13 @@
 export interface Project {
-  id: string;
+  id: number;
   title: string;
   description: string;
   date: string;
 }
 
 export interface Image {
-  id: string;
-  projectId: string;
+  id: number;
+  projectId: number;
   title: string;
   description: string;
   bigUrl: string;

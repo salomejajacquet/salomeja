@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   lightboxIndex: number;
   openInfos: boolean = false;
   displayLetters: boolean = true;
+  hoverProjectId: number;
 
   constructor(
     private homeService: HomeService,
@@ -61,23 +62,68 @@ export class HomeComponent implements OnInit {
           this.ref.markForCheck();
         }
       });
+
+    this.homeService.onHoverProjectIdChannel()
+      .pipe(takeWhile(() => this._alive))
+      .subscribe((projectId: number) => {
+        this.hoverProjectId = projectId;
+        this.setTileProjectLetter(projectId);
+        this.ref.markForCheck();
+      });
   }
 
   ngOnDestroy() {
     this._alive = false;
   }
 
+  setTileProjectLetter(id: number) {
+    this.tiles = this.tiles.filter(tile => !tile.tmp);
+
+    if (id) {
+      const currentProjectTitle: string = this.homeService.projects.find(project => project.id == id).title;
+      let i: number = 0;
+      this.tiles.forEach(tile => {
+        if (tile.images && !tile.images.find(image => image.projectId == id)) {
+          tile.projectTitleLetter = currentProjectTitle[i++]
+        }
+      });
+      if (i < currentProjectTitle.length - 1) {
+        console.log('PAS ASSEZ LONG');
+        for (let j = i; j < currentProjectTitle.length; j++) {
+          this.tiles.push({
+            projectTitleLetter: currentProjectTitle[j],
+            tmp: true
+          })
+        }
+      }
+    } else {
+      this.tiles.forEach(tile => {
+        if (tile.images && !tile.images.find(image => image.projectId == id)) {
+          tile.projectTitleLetter = null
+        }
+      });
+    }
+  }
+
   async buildTiles() {
     await this.homeService.getProjects();
     const images = this.homeService.images;
 
+    let i: number = 0;
+
     this.chunk(images, 4).map(images => {
-      this.tiles.push({ images: images });
+      this.tiles.push({
+        id: i++,
+        images: images
+      });
     });
 
     // Insert letters
     this.lettersPosition.map(letter => {
-      this.tiles.splice(letter.index, 0, { letter: letter.letter });
+      this.tiles.splice(letter.index, 0, {
+        id: i++,
+        letter: letter.letter
+      });
     });
 
     this.ref.markForCheck();
@@ -93,5 +139,12 @@ export class HomeComponent implements OnInit {
     }
 
     return chunks;
+  }
+
+  trackByFunction(index: number, item: any) {
+    if (!item) {
+      return null;
+    }
+    return item.id;
   }
 }

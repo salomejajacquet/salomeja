@@ -3,7 +3,6 @@ import { Tile } from 'src/app/models/tile.model';
 import { LightboxService } from 'src/app/services/lightbox.service';
 import { InfosService } from 'src/app/services/infos.service';
 import { HomeService } from 'src/app/services/home.service';
-import { takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tile',
@@ -13,11 +12,9 @@ import { takeWhile } from 'rxjs/operators';
 })
 export class TileComponent implements OnInit {
   @Input() data: Tile;
-  @Input() index: number;
-  private _alive: boolean = true;
+  @Input() hoverProjectId: number;
+  @Input() projectTitleLetter: string;
   isLoaded: boolean;
-  hoverProjectId: number;
-  // hasProjectImages: boolean;
 
   constructor(
     private lightboxService: LightboxService,
@@ -29,15 +26,6 @@ export class TileComponent implements OnInit {
   ngOnInit() {
     // console.log('tile data');
     // console.log(this.data);
-
-    this.homeService.onHoverProjectIdChannel()
-      .pipe(takeWhile(() => this._alive))
-      .subscribe((id: number) => {
-        // console.log('hover project id');
-        // console.log(id);
-        this.hoverProjectId = id;
-        this.ref.markForCheck();
-      });
   }
 
   openInfos() {
@@ -75,9 +63,5 @@ export class TileComponent implements OnInit {
   onLoad() {
     this.isLoaded = true;
     this.ref.markForCheck();
-  }
-
-  ngOnDestroy() {
-    this._alive = false;
   }
 }

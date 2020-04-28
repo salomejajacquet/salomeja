@@ -48,7 +48,7 @@ export class Api {
 
   replaceLineReturn(str: string): string {
     if (str) {
-      return str.replace('{alinea}', '<span class="alinea"></span>');
+      return str.replace('{alinea}', '<span class="alinea"></span>').replace(/(?:\r\n|\r|\n)/g, '<br>');
     } else {
       return '';
     }
