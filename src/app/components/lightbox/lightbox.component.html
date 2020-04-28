@@ -2,9 +2,9 @@
   <div class="overlay" (click)="close()"></div>
   <div class="content">
     <div class="left">
-      <h2 class="project-title">{{currentImage.projectTitle}}</h2>
-      <span class="project-date">{{currentImage.projectDate}}</span>
-      <p class="project-description" [innerHtml]="currentImage.projectDescription"></p>
+      <h2 class="project-title">{{currentProject.title}}</h2>
+      <span class="project-date">{{currentProject.date}}</span>
+      <p class="project-description" [innerHtml]="currentProject.description"></p>
     </div>
     <div class="list-wrapper" [ngStyle]="{'width': entryWidth + 'px'}">
       <ul class="list" [ngClass]="{'is-animated': isAnimated}" [ngStyle]="{

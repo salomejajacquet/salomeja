@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input, ChangeDetectorRef } from '@angular/core';
-import { Tile, TileImage } from 'src/app/models/tile.model';
+import { Tile } from 'src/app/models/tile.model';
 import { LightboxService } from 'src/app/services/lightbox.service';
 import { InfosService } from 'src/app/services/infos.service';
 import { HomeService } from 'src/app/services/home.service';
@@ -13,9 +13,11 @@ import { takeWhile } from 'rxjs/operators';
 })
 export class TileComponent implements OnInit {
   @Input() data: Tile;
+  @Input() index: number;
   private _alive: boolean = true;
   isLoaded: boolean;
   hoverProjectId: number;
+  // hasProjectImages: boolean;
 
   constructor(
     private lightboxService: LightboxService,
@@ -25,15 +27,14 @@ export class TileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.data.images) {
-      this.data.images.map(image => {
-        this.lightboxService.addImage(image);
-      });
-    }
+    // console.log('tile data');
+    // console.log(this.data);
 
     this.homeService.onHoverProjectIdChannel()
       .pipe(takeWhile(() => this._alive))
       .subscribe((id: number) => {
+        // console.log('hover project id');
+        // console.log(id);
         this.hoverProjectId = id;
         this.ref.markForCheck();
       });

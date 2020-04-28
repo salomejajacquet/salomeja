@@ -2,9 +2,9 @@
 
 .tiles {
   display: grid;
-  grid-gap: $spacing;
+  // grid-gap: $spacing;
   grid-template-columns: repeat(auto-fill, minmax($minimum-tile-width, 1fr));
-  padding: $spacing;
+  padding: $spacing / 2;
   opacity: 0;
 
   &.is-visible {

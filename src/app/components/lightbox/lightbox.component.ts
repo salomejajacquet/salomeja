@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { LightboxService } from 'src/app/services/lightbox.service';
-import { TileImage } from 'src/app/models/tile.model';
+import { Image, Project } from 'src/app/models/project.model';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-lightbox',
@@ -12,22 +13,24 @@ export class LightboxComponent implements OnInit, OnDestroy {
   @Input() lightboxIndex: number;
   private _keydownListener: EventListener;
   private _resizeListener: EventListener;
-  images: TileImage[];
+  currentProject: Project;
+  images: Image[];
+  currentImage: Image;
   padding: number = 6;
   entryWidth: number;
   entryHeight: number;
   translate: number;
   isAnimated: boolean = false;
-  currentImage: TileImage;
   blocWidth: number = 22.8 * 16;
 
   constructor(
+    private homeService: HomeService,
     private lightboxService: LightboxService,
     private ref: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
-    this.images = this.lightboxService.images;
+    this.images = this.homeService.images;
     this._keydownListener = this.onKeydown.bind(this);
     window.addEventListener('keydown', this._keydownListener);
     this._resizeListener = this.onWindowResize.bind(this);
@@ -48,9 +51,14 @@ export class LightboxComponent implements OnInit, OnDestroy {
   }
 
   setTranslate() {
-    this.currentImage = this.images[this.lightboxIndex];
+    this.setCurrentImage();
     this.translate = (this.entryWidth + this.blocWidth) * this.lightboxIndex;
     this.ref.markForCheck();
+  }
+
+  setCurrentImage() {
+    this.currentImage = this.images[this.lightboxIndex];
+    this.currentProject = this.homeService.projects.find(project => project.id == this.currentImage.projectId);
   }
 
   onClickDialog(index: number) {

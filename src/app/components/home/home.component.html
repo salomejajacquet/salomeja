@@ -1,6 +1,6 @@
 <main class="main">
   <ul class="tiles" [ngClass]="{'is-visible': displayLetters}">
-    <app-tile *ngFor="let tile of tiles; let i = index" [data]="tile" class="tile-wrapper"></app-tile>
+    <app-tile *ngFor="let tile of tiles; let i = index" [data]="tile" [index]="i" class="tile-wrapper"></app-tile>
   </ul>
 </main>
 

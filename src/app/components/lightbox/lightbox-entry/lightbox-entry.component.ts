@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { fadeInAnimation, fadeOutAnimation } from 'src/app/utils/animations';
+import { Image } from 'src/app/models/project.model';
 
 @Component({
   selector: 'app-lightbox-entry',
@@ -9,7 +10,7 @@ import { fadeInAnimation, fadeOutAnimation } from 'src/app/utils/animations';
   animations: [fadeInAnimation, fadeOutAnimation]
 })
 export class LightboxEntryComponent implements OnInit {
-  @Input() image: any;
+  @Input() image: Image;
   // mobileBreakpoint: number = 767;
   isInViewport: boolean;
   isLoaded: boolean;

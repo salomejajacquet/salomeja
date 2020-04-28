@@ -5,6 +5,7 @@ import { Tile } from 'src/app/models/tile.model';
 import { LightboxService } from 'src/app/services/lightbox.service';
 import { takeWhile } from 'rxjs/operators';
 import { InfosService } from 'src/app/services/infos.service';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -28,15 +29,14 @@ export class HomeComponent implements OnInit {
   displayLetters: boolean = true;
 
   constructor(
-    private api: Api,
+    private homeService: HomeService,
     private ref: ChangeDetectorRef,
     private lightboxService: LightboxService,
     private infosService: InfosService
   ) { }
 
-  async ngOnInit() {
-    const projects = await this.api.getProjects();
-    this.buildTiles(projects);
+  ngOnInit() {
+    this.buildTiles();
 
     this.lightboxService.lightboxChannel()
       .pipe(takeWhile(() => this._alive))
@@ -63,27 +63,21 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  buildTiles(projects: any) {
-    const images = [];
+  ngOnDestroy() {
+    this._alive = false;
+  }
 
-    projects.map((project: any) => {
-      // console.log(project);
-      project.images.map((image: any) => {
-        image.projectTitle = project.title;
-        image.projectDate = project.date;
-        image.projectDescription = project.description;
-        images.push(image);
-      });
-    });
+  async buildTiles() {
+    await this.homeService.getProjects();
+    const images = this.homeService.images;
 
     this.chunk(images, 4).map(images => {
-      const tile = this.createTile({ images: images });
-      this.tiles.push(tile);
+      this.tiles.push({ images: images });
     });
 
     // Insert letters
     this.lettersPosition.map(letter => {
-      this.tiles.splice(letter.index, 0, this.createTile({ letter: letter.letter }));
+      this.tiles.splice(letter.index, 0, { letter: letter.letter });
     });
 
     this.ref.markForCheck();
@@ -99,13 +93,5 @@ export class HomeComponent implements OnInit {
     }
 
     return chunks;
-  }
-
-  createTile(data: any) {
-    return new Tile(data);
-  }
-
-  ngOnDestroy() {
-    this._alive = false;
   }
 }
