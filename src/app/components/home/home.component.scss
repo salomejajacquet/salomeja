@@ -2,7 +2,6 @@
 
 .tiles {
   display: grid;
-  // grid-gap: $spacing;
   grid-template-columns: repeat(auto-fill, minmax($minimum-tile-width, 1fr));
   padding: $spacing / 2;
   opacity: 0;
@@ -30,45 +29,4 @@
   width: 100vw;
   height: 100vh;
   z-index: 100;
-}
-
-// Animation
-:host ::ng-deep .letter-path--s {
-  stroke-dasharray: 308 310;
-  stroke-dashoffset: 309;
-}
-
-:host ::ng-deep .letter-path--a {
-  stroke-dasharray: 345 347;
-  stroke-dashoffset: 346;
-}
-
-:host ::ng-deep .letter-path--l {
-  stroke-dasharray: 357 359;
-  stroke-dashoffset: 358;
-}
-
-:host ::ng-deep .letter-path--m {
-  stroke-dasharray: 470 472;
-  stroke-dashoffset: 471;
-
-  stroke-miterlimit: 5;
-}
-
-:host ::ng-deep .letter-path--j {
-  stroke-dasharray: 196 198;
-  stroke-dashoffset: 197;
-}
-
-:host ::ng-deep .letter-path {
-  stroke-width: 1;
-  stroke: black;
-  fill: none;
-  animation: letter-draw 1.5s linear 0s forwards;
-}
-
-@keyframes letter-draw {
-  100% {
-    stroke-dashoffset: 0;
-  }
 }
