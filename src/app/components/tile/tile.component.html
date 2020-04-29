@@ -1,6 +1,6 @@
 <div class="tile" [ngClass]="{'is-letter': data.letter}">
   <button *ngIf="data.letter" class="content" (click)="openInfos()"
-    [inlineSVG]="'/assets/images/letters/' + data.letter + '-animated.svg'"></button>
+    [inlineSVG]="'/assets/images/letters/regular/' + data.letter + '_regular.svg'"></button>
   <div *ngIf="data.images" class="content">
     <button *ngFor="let image of data.images" class="button-image"
       [ngClass]="{'is-hidden': hoverProjectId && hoverProjectId != image.projectId}" (click)="openLightbox(image)"
@@ -9,7 +9,8 @@
         [ngClass]="{'is-loaded': isLoaded}">
     </button>
   </div>
-  <div *ngIf="projectTitleLetter" class="content">
-    <span class="current-project-letter">{{projectTitleLetter}}</span>
+  <div *ngIf="projectTitleLetter" class="content project-letter"
+    [inlineSVG]="'/assets/images/letters/italic/' + projectTitleLetter + '.svg'">
+    <!-- <span class="current-project-letter">{{projectTitleLetter}}</span> -->
   </div>
 </div>

@@ -17,6 +17,18 @@ export const slideInAnimation = trigger('slideInAnimation', [
 //   ], { params: { delay: 0 } })
 // ]);
 
+export const fadeAnimation = trigger('fadeAnimation', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate('.2s')
+  ]),
+  transition(':leave', [
+    animate('.2s', style({
+      opacity: 0
+    }))
+  ])
+]);
+
 export const fadeInAnimation = trigger('fadeInAnimation', [
   transition(':enter', [
     style({ opacity: 0 }),

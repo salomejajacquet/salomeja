@@ -3,11 +3,13 @@ import { Tile } from 'src/app/models/tile.model';
 import { LightboxService } from 'src/app/services/lightbox.service';
 import { InfosService } from 'src/app/services/infos.service';
 import { HomeService } from 'src/app/services/home.service';
+import { fadeAnimation } from 'src/app/utils/animations';
 
 @Component({
   selector: 'app-tile',
   templateUrl: './tile.component.html',
   styleUrls: ['./tile.component.scss'],
+  animations: [fadeAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TileComponent implements OnInit {

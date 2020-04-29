@@ -66,9 +66,11 @@ export class HomeComponent implements OnInit {
     this.homeService.onHoverProjectIdChannel()
       .pipe(takeWhile(() => this._alive))
       .subscribe((projectId: number) => {
-        this.hoverProjectId = projectId;
-        this.setTileProjectLetter(projectId);
-        this.ref.markForCheck();
+        if (this.hoverProjectId != projectId) {
+          this.hoverProjectId = projectId;
+          this.setTileProjectLetter(projectId);
+          this.ref.markForCheck();
+        }
       });
   }
 
@@ -84,14 +86,18 @@ export class HomeComponent implements OnInit {
       let i: number = 0;
       this.tiles.forEach(tile => {
         if (tile.images && !tile.images.find(image => image.projectId == id)) {
-          tile.projectTitleLetter = currentProjectTitle[i++]
+          if (currentProjectTitle[i]) {
+            const letter: string = currentProjectTitle[i] != '?' ? currentProjectTitle[i] : 'INTEROGATION';
+            tile.projectTitleLetter = letter.toUpperCase()
+          }
+          i++;
         }
       });
       if (i < currentProjectTitle.length - 1) {
-        console.log('PAS ASSEZ LONG');
         for (let j = i; j < currentProjectTitle.length; j++) {
+          const letter: string = currentProjectTitle[j] != '?' ? currentProjectTitle[j] : 'INTEROGATION';
           this.tiles.push({
-            projectTitleLetter: currentProjectTitle[j],
+            projectTitleLetter: letter.toUpperCase(),
             tmp: true
           })
         }

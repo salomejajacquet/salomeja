@@ -53,6 +53,12 @@
   padding: $spacing / 2;
 }
 
+:host ::ng-deep .project-letter polyline,
+:host ::ng-deep .project-letter line,
+:host ::ng-deep .project-letter path {
+  stroke: red;
+}
+
 .button-image {
   opacity: 1;
   transition: opacity .6s;
@@ -62,7 +68,7 @@
   }
 }
 
-.current-project-letter {
-  color: red;
-  font-size: 6rem;
-}
+// .current-project-letter {
+//   color: red;
+//   font-size: 6rem;
+// }
