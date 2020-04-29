@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { slideInAnimation, lightboxAnimation } from 'src/app/utils/animations';
-import { Api } from 'src/app/services/api.service';
+import { slideInAnimation, lightboxAnimation, homeFadeInAnimation } from 'src/app/utils/animations';
 import { Tile } from 'src/app/models/tile.model';
 import { LightboxService } from 'src/app/services/lightbox.service';
 import { takeWhile } from 'rxjs/operators';
@@ -12,7 +11,7 @@ import { HomeService } from 'src/app/services/home.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [slideInAnimation, lightboxAnimation]
+  animations: [slideInAnimation, lightboxAnimation, homeFadeInAnimation]
 })
 export class HomeComponent implements OnInit {
   private _alive: boolean = true;

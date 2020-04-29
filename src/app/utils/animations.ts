@@ -10,12 +10,12 @@ export const slideInAnimation = trigger('slideInAnimation', [
   ])
 ]);
 
-// export const homeFadeInAnimation = trigger('homeFadeInAnimation', [
-//   transition(':enter', [
-//     style({ opacity: 0 }),
-//     animate('.4s {{delay}}ms ease', style({ opacity: 1 })),
-//   ], { params: { delay: 0 } })
-// ]);
+export const homeFadeInAnimation = trigger('homeFadeInAnimation', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate('.4s {{delay}}ms ease', style({ opacity: 1 })),
+  ], { params: { delay: 0 } })
+]);
 
 export const fadeAnimation = trigger('fadeAnimation', [
   transition(':enter', [
