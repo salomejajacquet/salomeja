@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
   openInfos: boolean = false;
   displayLetters: boolean = true;
   hoverProjectId: number;
+  tmpTiles: Tile[] = [];
 
   constructor(
     private homeService: HomeService,
@@ -78,13 +79,14 @@ export class HomeComponent implements OnInit {
   }
 
   setTileProjectLetter(id: number) {
-    this.tiles = this.tiles.filter(tile => !tile.tmp);
+    // this.tiles = this.tiles.filter(tile => !tile.tmp);
+    this.tmpTiles = [];
 
     if (id) {
       const currentProjectTitle: string = this.homeService.projects.find(project => project.id == id).title;
       let i: number = 0;
-      this.tiles.forEach(tile => {
-        if (tile.images && !tile.images.find(image => image.projectId == id)) {
+      this.tiles.forEach((tile: Tile, index: number) => {
+        if (index > 7 && tile.images && !tile.images.find(image => image.projectId == id)) {
           if (currentProjectTitle[i]) {
             const letter: string = this.parseProjectLetter(currentProjectTitle[i]);
             tile.projectTitleLetter = letter.toUpperCase()
@@ -95,9 +97,8 @@ export class HomeComponent implements OnInit {
       if (i < currentProjectTitle.length - 1) {
         for (let j = i; j < currentProjectTitle.length; j++) {
           const letter: string = this.parseProjectLetter(currentProjectTitle[j]);
-          this.tiles.push({
-            projectTitleLetter: letter.toUpperCase(),
-            tmp: true
+          this.tmpTiles.push({
+            projectTitleLetter: letter.toUpperCase()
           })
         }
       }
