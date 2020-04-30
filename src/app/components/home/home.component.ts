@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
       this.tiles.forEach(tile => {
         if (tile.images && !tile.images.find(image => image.projectId == id)) {
           if (currentProjectTitle[i]) {
-            const letter: string = currentProjectTitle[i] != '?' ? currentProjectTitle[i] : 'INTEROGATION';
+            const letter: string = this.parseProjectLetter(currentProjectTitle[i]);
             tile.projectTitleLetter = letter.toUpperCase()
           }
           i++;
@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit {
       });
       if (i < currentProjectTitle.length - 1) {
         for (let j = i; j < currentProjectTitle.length; j++) {
-          const letter: string = currentProjectTitle[j] != '?' ? currentProjectTitle[j] : 'INTEROGATION';
+          const letter: string = this.parseProjectLetter(currentProjectTitle[j]);
           this.tiles.push({
             projectTitleLetter: letter.toUpperCase(),
             tmp: true
@@ -107,6 +107,20 @@ export class HomeComponent implements OnInit {
           tile.projectTitleLetter = null
         }
       });
+    }
+  }
+
+  parseProjectLetter(letter: string): string {
+    if (letter == '?') {
+      return 'INTEROGATION';
+    } else if (letter == '/') {
+      return 'SLASH';
+    } else if (letter == '#') {
+      return 'DIEZE';
+    } else if (letter == ' ') {
+      return 'SPACE';
+    } else {
+      return letter;
     }
   }
 
