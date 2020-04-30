@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
       const currentProjectTitle: string = this.homeService.projects.find(project => project.id == id).title;
       let i: number = 0;
       this.tiles.forEach((tile: Tile, index: number) => {
-        if (index > 7 && tile.images && !tile.images.find(image => image.projectId == id)) {
+        if (tile.images && !tile.images.find(image => image.projectId == id)) {
           if (currentProjectTitle[i]) {
             const letter: string = this.parseProjectLetter(currentProjectTitle[i]);
             tile.projectTitleLetter = letter.toUpperCase()
