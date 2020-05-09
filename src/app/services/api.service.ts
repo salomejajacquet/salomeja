@@ -15,14 +15,10 @@ export class Api {
     });
   }
 
-  getProjects() {
-    return this.client.getItems('project?fields=*.*.*.*')
-      .catch((error: any) => console.error(error))
-      .then((data: any) => {
-        console.log('data');
-        console.log(data);
-        return this.parseProjects(data.data);
-      });
+  async getProjects() {
+    const response: any = await this.client.getItems('project?fields=*.*.*.*');
+    // console.log(response);
+    return this.parseProjects(response.data);
   }
 
   parseProjects(data: any): Project[] {
@@ -41,8 +37,8 @@ export class Api {
       projectId: projectId,
       title: entry.image.title,
       description: this.replaceLineReturn(entry.image.description),
-      bigUrl: entry.image.image.data.thumbnails.find((thumbnail: any) => thumbnail.dimension == '1200x1200').url,
-      thumbUrl: entry.image.image.data.thumbnails.find((thumbnail: any) => thumbnail.dimension == '150x150').url
+      bigUrl: `${this.domain}/${this.project}/assets/${entry.image.image.private_hash}?key=thumb_big`,
+      thumbUrl: `${this.domain}/${this.project}/assets/${entry.image.image.private_hash}?key=thumb_small`
     }));
   }
 
