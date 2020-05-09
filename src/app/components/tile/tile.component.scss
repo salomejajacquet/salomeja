@@ -53,6 +53,9 @@
   padding: $spacing / 2;
 }
 
+:host ::ng-deep .is-letter:hover polyline,
+:host ::ng-deep .is-letter:hover line,
+:host ::ng-deep .is-letter:hover path,
 :host ::ng-deep .project-letter polyline,
 :host ::ng-deep .project-letter line,
 :host ::ng-deep .project-letter path {
