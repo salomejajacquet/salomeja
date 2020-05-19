@@ -6,6 +6,7 @@ import { Api } from 'src/app/services/api.service';
 @Injectable()
 export class HomeService {
   private _onHoverProjectId: Subject<number> = new Subject<number>();
+  private _onHoverLogo: Subject<boolean> = new Subject<boolean>();
   projects: Project[] = [];
   images: Image[] = [];
 
@@ -17,8 +18,16 @@ export class HomeService {
     return this._onHoverProjectId.asObservable();
   }
 
+  public onHoverLogoChannel(): Observable<boolean> {
+    return this._onHoverLogo.asObservable();
+  }
+
   setHoverProjectId(id: number) {
     this._onHoverProjectId.next(id);
+  }
+
+  setHoverLogo(state: boolean) {
+    this._onHoverLogo.next(state);
   }
 
   async getProjects() {

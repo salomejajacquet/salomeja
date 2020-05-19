@@ -1,10 +1,12 @@
 <main class="main">
   <ul class="tiles" [ngClass]="{'is-visible': displayLetters}">
-    <app-tile *ngFor="let tile of tiles; let i = index; trackBy: trackByFunction" class="tile-wrapper" [data]="tile"
+    <app-tile *ngFor="let tile of tiles; let i = index; trackBy: trackByFunction" [data]="tile"
       [hoverProjectId]="hoverProjectId" [projectTitleLetter]="tile.projectTitleLetter"
-      [@homeFadeInAnimation]="{ value: '', params: { delay: i * 100 } }"></app-tile>
-    <app-tile *ngFor="let tile of tmpTiles; trackBy: trackByFunction" class="tile-wrapper"
-      [projectTitleLetter]="tile.projectTitleLetter"></app-tile>
+      [@homeFadeInAnimation]="{ value: '', params: { delay: i * 100 } }" [ngClass]="{'is-logo-hover': tile.letter &&
+      hoverLogo}">
+    </app-tile>
+    <app-tile *ngFor="let tile of tmpTiles; trackBy: trackByFunction" [projectTitleLetter]="tile.projectTitleLetter">
+    </app-tile>
   </ul>
 </main>
 

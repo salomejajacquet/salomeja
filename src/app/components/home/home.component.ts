@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
   displayLetters: boolean = true;
   hoverProjectId: number;
   tmpTiles: Tile[] = [];
+  hoverLogo: boolean;
 
   constructor(
     private homeService: HomeService,
@@ -61,6 +62,13 @@ export class HomeComponent implements OnInit {
           this.displayLetters = true;
           this.ref.markForCheck();
         }
+      });
+
+    this.homeService.onHoverLogoChannel()
+      .pipe(takeWhile(() => this._alive))
+      .subscribe((state: boolean) => {
+        this.hoverLogo = state;
+        this.ref.markForCheck();
       });
 
     this.homeService.onHoverProjectIdChannel()

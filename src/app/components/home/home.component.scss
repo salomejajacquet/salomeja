@@ -11,6 +11,12 @@
   }
 }
 
+:host ::ng-deep .is-logo-hover polyline,
+:host ::ng-deep .is-logo-hover line,
+:host ::ng-deep .is-logo-hover path {
+  stroke: $color-red;
+}
+
 .infos-wrapper {
   position: fixed;
   top: 0;

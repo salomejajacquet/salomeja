@@ -33,11 +33,19 @@ export class TileComponent implements OnInit {
     this.lightboxService.open(image);
   }
 
-  onMouseEnter(image: any) {
+  onMouseEnterLetterTile() {
+    this.homeService.setHoverLogo(true);
+  }
+
+  onMouseLeaveLetterTile() {
+    this.homeService.setHoverLogo(false);
+  }
+
+  onMouseEnterProjectTile(image: any) {
     this.homeService.setHoverProjectId(image.projectId);
   }
 
-  onMouseLeave() {
+  onMouseLeaveProjectTile() {
     this.homeService.setHoverProjectId(null);
   }
 
