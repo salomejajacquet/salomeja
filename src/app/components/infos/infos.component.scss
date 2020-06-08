@@ -11,16 +11,19 @@
 
 .letters {
   display: grid;
-  // grid-gap: $spacing;
   grid-template-columns: repeat(auto-fill, minmax($minimum-tile-width, 1fr));
   padding: $spacing / 2;
   opacity: 0;
+
+  @media screen and (max-width: $bp-small) {
+    display: none;
+  }
 
   &.is-visible {
     opacity: 1;
   }
 
-  > div {
+  >div {
     padding: $spacing / 2;
   }
 
@@ -47,6 +50,11 @@
   padding: 1rem;
   padding-top: 0;
   padding-right: 0;
+
+  @media screen and (max-width: $bp-small) {
+    padding-top: .75rem;
+    padding-right: 3rem;
+  }
 }
 
 .body {
@@ -74,14 +82,8 @@
   }
 }
 
-section {
-  @media screen and (max-width: $bp-small) {
-    margin-bottom: 2rem;
-  }
-
-  &:not(:last-child) {
-    margin-bottom: 2rem;
-  }
+section :not(:last-child) {
+  margin-bottom: 2rem;
 }
 
 .infos-entry:not(:last-child) {
@@ -96,4 +98,25 @@ section {
   font-size: .6em;
   position: relative;
   top: -2px;
+}
+
+.close-button {
+  @media screen and (max-width: $bp-small) {
+    width: 1.75rem;
+    height: 42px;
+    top: .75rem;
+    right: .75rem;
+  }
+}
+
+:host ::ng-deep .close-button line {
+  @media screen and (max-width: $bp-small) {
+    stroke-width: 1.25 !important;
+  }
+}
+
+.hide-desktop {
+  @media screen and (min-width: $bp-small) {
+    display: none;
+  }
 }

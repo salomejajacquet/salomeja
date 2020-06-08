@@ -36,3 +36,8 @@
   height: 100vh;
   z-index: 100;
 }
+
+:host ::ng-deep .remove-zindex .tile,
+:host ::ng-deep .remove-zindex svg {
+  z-index: 0 !important;
+}

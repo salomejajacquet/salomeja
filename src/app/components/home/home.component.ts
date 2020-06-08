@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   hoverProjectId: number;
   tmpTiles: Tile[] = [];
   hoverLogo: boolean;
+  removeZindex: boolean;
 
   constructor(
     private homeService: HomeService,
@@ -53,13 +54,18 @@ export class HomeComponent implements OnInit {
         this.openInfos = state;
         this.ref.markForCheck();
 
-        if (state) {
-          setTimeout(() => {
-            this.displayLetters = false;
+        if (window.innerWidth >= 768) {
+          if (state) {
+            setTimeout(() => {
+              this.displayLetters = false;
+              this.ref.markForCheck();
+            }, 850);
+          } else {
+            this.displayLetters = true;
             this.ref.markForCheck();
-          }, 850);
+          }
         } else {
-          this.displayLetters = true;
+          this.removeZindex = state;
           this.ref.markForCheck();
         }
       });
