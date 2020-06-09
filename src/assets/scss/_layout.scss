@@ -41,3 +41,51 @@ a:active {
 .italic {
   font-family: $font-family-italic;
 }
+
+.hide-desktop {
+  @media screen and (min-width: $bp-small) {
+    display: none !important;
+  }
+}
+
+.hide-mobile {
+  @media screen and (max-width: $bp-small) {
+    display: none !important;
+  }
+}
+
+.infos-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: $color-background-infos;
+
+  .inner {
+    max-width: 65rem;
+    padding: 1rem;
+    padding-top: 0;
+    padding-right: 0;
+
+    @media screen and (max-width: $bp-small) {
+      padding-top: .75rem;
+      padding-right: 3rem;
+    }
+  }
+
+  .close-button {
+    @media screen and (max-width: $bp-small) {
+      width: 1.75rem;
+      height: 42px;
+      top: .75rem;
+      right: .75rem;
+    }
+  }
+}
+
+:host ::ng-deep .infos-wrapper .close-button line {
+  @media screen and (max-width: $bp-small) {
+    stroke-width: 1.25 !important;
+  }
+}

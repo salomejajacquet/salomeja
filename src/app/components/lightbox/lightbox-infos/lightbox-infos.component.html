@@ -1,0 +1,11 @@
+<div class="lightbox-infos">
+  <div class="inner">
+    <h2 class="project-title">{{project.title}}</h2>
+    <span class="project-date">{{project.date}}</span>
+    <p class="project-description" [innerHtml]="project.description"></p>
+    <h2 class="image-title">{{image.title}}</h2>
+    <p class="image-description" [innerHtml]="image.description"></p>
+  </div>
+  <button class="close-button" aria-label="Close button" (click)="close()"
+    inlineSVG="/assets/images/icon-cross.svg"></button>
+</div>

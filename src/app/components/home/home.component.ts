@@ -5,6 +5,7 @@ import { LightboxService } from 'src/app/services/lightbox.service';
 import { takeWhile } from 'rxjs/operators';
 import { InfosService } from 'src/app/services/infos.service';
 import { HomeService } from 'src/app/services/home.service';
+import { Utils } from 'src/app/utils/utils';
 
 @Component({
   selector: 'app-home',
@@ -35,7 +36,8 @@ export class HomeComponent implements OnInit {
     private homeService: HomeService,
     private ref: ChangeDetectorRef,
     private lightboxService: LightboxService,
-    private infosService: InfosService
+    private infosService: InfosService,
+    private utils: Utils
   ) { }
 
   ngOnInit() {
@@ -54,7 +56,7 @@ export class HomeComponent implements OnInit {
         this.openInfos = state;
         this.ref.markForCheck();
 
-        if (window.innerWidth >= 768) {
+        if (!this.utils.isMobile) {
           if (state) {
             setTimeout(() => {
               this.displayLetters = false;

@@ -1,7 +1,7 @@
 <div class="lightbox">
   <div class="overlay" (click)="close()"></div>
-  <div class="content">
-    <div class="left">
+  <div class="content" (swiperight)="swipeRight()" (swipeleft)="swipeLeft()">
+    <div class="left hide-mobile">
       <h2 class="project-title">{{currentProject.title}}</h2>
       <span class="project-date">{{currentProject.date}}</span>
       <p class="project-description" [innerHtml]="currentProject.description"></p>
@@ -18,11 +18,19 @@
         </li>
       </ul>
     </div>
-    <div class="right">
+    <div class="right hide-mobile">
       <h2 class="image-title">{{currentImage.title}}</h2>
       <p class="image-description" [innerHtml]="currentImage.description"></p>
       <button class="close-button" aria-label="Close button" (click)="close()"
         inlineSVG="/assets/images/icon-cross.svg"></button>
     </div>
   </div>
+  <div class="mobile-buttons-wrapper hide-desktop">
+    <button (click)="close()">Close</button>
+    <button (click)="onClickMoreInfos()">More Infos</button>
+  </div>
+</div>
+
+<div class="infos-wrapper" *ngIf="openInfos" [@slideInAnimation]>
+  <app-lightbox-infos [project]="currentProject" [image]="currentImage" (closeInfos)="closeInfos()"></app-lightbox-infos>
 </div>

@@ -60,6 +60,10 @@
 
   &:not(:last-child) {
     margin-right: $lightbox-bloc-size;
+
+    @media screen and (max-width: $bp-small) {
+      margin-right: $spacing;
+    }
   }
 
   button {
@@ -93,4 +97,13 @@
 
 button:disabled {
   cursor: default;
+}
+
+.mobile-buttons-wrapper {
+  position: absolute;
+  bottom: $spacing;
+  right: $spacing;
+  left: $spacing;
+  display: flex;
+  justify-content: space-between;
 }

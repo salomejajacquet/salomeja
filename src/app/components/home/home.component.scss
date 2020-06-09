@@ -17,15 +17,6 @@
   stroke: $color-red;
 }
 
-.infos-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: $color-background-infos;
-}
-
 .lightbox-wrapper {
   transform: scale(1);
   opacity: 1;

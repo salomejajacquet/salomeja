@@ -2,12 +2,15 @@ import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy, ChangeDet
 import { LightboxService } from 'src/app/services/lightbox.service';
 import { Image, Project } from 'src/app/models/project.model';
 import { HomeService } from 'src/app/services/home.service';
+import { Utils } from 'src/app/utils/utils';
+import { slideInAnimation } from 'src/app/utils/animations';
 
 @Component({
   selector: 'app-lightbox',
   templateUrl: './lightbox.component.html',
   styleUrls: ['./lightbox.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [slideInAnimation]
 })
 export class LightboxComponent implements OnInit, OnDestroy {
   @Input() lightboxIndex: number;
@@ -21,12 +24,13 @@ export class LightboxComponent implements OnInit, OnDestroy {
   entryHeight: number;
   translate: number;
   isAnimated: boolean = false;
-  blocWidth: number = 22.8 * 16;
+  openInfos: boolean = false;
 
   constructor(
     private homeService: HomeService,
     private lightboxService: LightboxService,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
+    private utils: Utils
   ) { }
 
   ngOnInit() {
@@ -39,20 +43,32 @@ export class LightboxComponent implements OnInit, OnDestroy {
     this.setTranslate();
   }
 
+  ngOnDestroy() {
+    window.removeEventListener('keydown', this._keydownListener);
+    window.removeEventListener('resize', this._resizeListener);
+  }
+
   onWindowResize() {
     this.setDialogSize();
     this.setTranslate();
   }
 
   setDialogSize() {
-    this.entryHeight = window.innerHeight - 2 * this.padding;
+    this.entryHeight = this.utils.isMobile ? window.innerHeight - 3 * this.padding - 15 : window.innerHeight - 2 * this.padding;
     this.entryWidth = 2 * this.entryHeight / 3;
+
+    if (this.entryWidth > window.innerWidth - 2 * this.padding) {
+      this.entryWidth = window.innerWidth - 2 * this.padding
+      this.entryHeight = this.entryWidth * 3 / 2;
+    }
+
     this.ref.markForCheck();
   }
 
   setTranslate() {
     this.setCurrentImage();
-    this.translate = (this.entryWidth + this.blocWidth) * this.lightboxIndex;
+    const marginRight: number = this.utils.isMobile ? 6 : 22.8 * 16;
+    this.translate = (this.entryWidth + marginRight) * this.lightboxIndex;
     this.ref.markForCheck();
   }
 
@@ -106,8 +122,21 @@ export class LightboxComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
-    window.removeEventListener('keydown', this._keydownListener);
-    window.removeEventListener('resize', this._resizeListener);
+  onClickMoreInfos() {
+    this.openInfos = true;
+    this.ref.markForCheck();
+  }
+
+  closeInfos() {
+    this.openInfos = false;
+    this.ref.markForCheck();
+  }
+
+  swipeRight() {
+    this.prev();
+  }
+
+  swipeLeft() {
+    this.next();
   }
 }
